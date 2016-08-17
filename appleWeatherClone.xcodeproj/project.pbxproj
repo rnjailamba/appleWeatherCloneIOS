@@ -15,6 +15,12 @@
 		6300D9801D62D0EC006A64D8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6300D97F1D62D0EC006A64D8 /* Default-568h@2x.png */; };
 		6300D9841D641D1D006A64D8 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D9821D641D1D006A64D8 /* PageViewController.m */; };
 		6300D9851D641D1D006A64D8 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9831D641D1D006A64D8 /* PageViewController.xib */; };
+		6300D9891D642147006A64D8 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D9871D642147006A64D8 /* PageContentViewController.m */; };
+		6300D98A1D642147006A64D8 /* PageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9881D642147006A64D8 /* PageContentViewController.xib */; };
+		6300D9901D6424F1006A64D8 /* clear-compressed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6300D98C1D6424F1006A64D8 /* clear-compressed.jpg */; };
+		6300D9911D6424F1006A64D8 /* cold-compressed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6300D98D1D6424F1006A64D8 /* cold-compressed.jpg */; };
+		6300D9921D6424F1006A64D8 /* rainy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6300D98E1D6424F1006A64D8 /* rainy.jpg */; };
+		6300D9931D6424F1006A64D8 /* sunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6300D98F1D6424F1006A64D8 /* sunny.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,13 @@
 		6300D9811D641D1D006A64D8 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		6300D9821D641D1D006A64D8 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		6300D9831D641D1D006A64D8 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		6300D9861D642147006A64D8 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		6300D9871D642147006A64D8 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		6300D9881D642147006A64D8 /* PageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageContentViewController.xib; sourceTree = "<group>"; };
+		6300D98C1D6424F1006A64D8 /* clear-compressed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "clear-compressed.jpg"; path = "../../../photosWeatherApp/clear-compressed.jpg"; sourceTree = "<group>"; };
+		6300D98D1D6424F1006A64D8 /* cold-compressed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cold-compressed.jpg"; path = "../../../photosWeatherApp/cold-compressed.jpg"; sourceTree = "<group>"; };
+		6300D98E1D6424F1006A64D8 /* rainy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rainy.jpg; path = ../../../photosWeatherApp/rainy.jpg; sourceTree = "<group>"; };
+		6300D98F1D6424F1006A64D8 /* sunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sunny.jpg; path = ../../../photosWeatherApp/sunny.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +77,20 @@
 		6300D9651D62CE15006A64D8 /* appleWeatherClone */ = {
 			isa = PBXGroup;
 			children = (
+				6300D98B1D6424B6006A64D8 /* Graphics */,
 				6300D9691D62CE15006A64D8 /* AppDelegate.h */,
 				6300D96A1D62CE15006A64D8 /* AppDelegate.m */,
+				6300D9721D62CE15006A64D8 /* Assets.xcassets */,
+				6300D9771D62CE15006A64D8 /* Info.plist */,
 				6300D96C1D62CE15006A64D8 /* ViewController.h */,
 				6300D96D1D62CE15006A64D8 /* ViewController.m */,
 				6300D97D1D62CEDE006A64D8 /* ViewController.xib */,
 				6300D9811D641D1D006A64D8 /* PageViewController.h */,
 				6300D9821D641D1D006A64D8 /* PageViewController.m */,
 				6300D9831D641D1D006A64D8 /* PageViewController.xib */,
-				6300D9721D62CE15006A64D8 /* Assets.xcassets */,
-				6300D9771D62CE15006A64D8 /* Info.plist */,
+				6300D9861D642147006A64D8 /* PageContentViewController.h */,
+				6300D9871D642147006A64D8 /* PageContentViewController.m */,
+				6300D9881D642147006A64D8 /* PageContentViewController.xib */,
 				6300D9661D62CE15006A64D8 /* Supporting Files */,
 			);
 			path = appleWeatherClone;
@@ -85,6 +102,17 @@
 				6300D9671D62CE15006A64D8 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6300D98B1D6424B6006A64D8 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				6300D98C1D6424F1006A64D8 /* clear-compressed.jpg */,
+				6300D98D1D6424F1006A64D8 /* cold-compressed.jpg */,
+				6300D98E1D6424F1006A64D8 /* rainy.jpg */,
+				6300D98F1D6424F1006A64D8 /* sunny.jpg */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,10 +172,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6300D9901D6424F1006A64D8 /* clear-compressed.jpg in Resources */,
+				6300D9931D6424F1006A64D8 /* sunny.jpg in Resources */,
 				6300D97E1D62CEDE006A64D8 /* ViewController.xib in Resources */,
+				6300D9911D6424F1006A64D8 /* cold-compressed.jpg in Resources */,
+				6300D9921D6424F1006A64D8 /* rainy.jpg in Resources */,
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
 				6300D9801D62D0EC006A64D8 /* Default-568h@2x.png in Resources */,
 				6300D9851D641D1D006A64D8 /* PageViewController.xib in Resources */,
+				6300D98A1D642147006A64D8 /* PageContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +193,7 @@
 			files = (
 				6300D96E1D62CE15006A64D8 /* ViewController.m in Sources */,
 				6300D96B1D62CE15006A64D8 /* AppDelegate.m in Sources */,
+				6300D9891D642147006A64D8 /* PageContentViewController.m in Sources */,
 				6300D9681D62CE15006A64D8 /* main.m in Sources */,
 				6300D9841D641D1D006A64D8 /* PageViewController.m in Sources */,
 			);
