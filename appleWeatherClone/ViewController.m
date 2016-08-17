@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "PageViewController.h"
+
 
 @interface ViewController ()
+- (IBAction)startAppleWeatherApp:(id)sender;
 
 @end
 
@@ -16,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.frame  = [[ UIScreen mainScreen ] bounds];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,4 +28,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startAppleWeatherApp:(id)sender {
+    PageViewController *pageVC = [[PageViewController alloc]initWithNibName:@"PageViewController" bundle:nil];
+    [self.navigationController pushViewController:pageVC animated:YES];
+}
 @end
