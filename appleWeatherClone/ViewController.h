@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-+(void)viewControllerWithIndex:(NSInteger) index;
+@property (nonatomic) NSInteger customStartPage;
 
 @end
 

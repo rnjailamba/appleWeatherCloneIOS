@@ -24,7 +24,7 @@
     pageControl.backgroundColor = [UIColor whiteColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
-    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil]];
+//    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil]];
     self.window.rootViewController = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
     [self.window makeKeyAndVisible];
     return YES;

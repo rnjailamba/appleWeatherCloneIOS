@@ -42,8 +42,14 @@
     _pageViewController.dataSource = self;
 
     self.pageViewController.dataSource = self;
-    
-    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
+    if(self.customStartPage != 0){
+        
+    }
+    else{
+        self.customStartPage = 0;
+    }
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:self.customStartPage];
+
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
@@ -122,9 +128,8 @@
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
-    return 0;
+    return self.currentIndex;
 }
-
 
 
 - (IBAction)stackClicked:(id)sender {

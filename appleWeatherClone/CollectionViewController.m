@@ -26,8 +26,6 @@
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -82,6 +80,7 @@
 {
     NSLog(@"didselect%ld",(long)indexPath.row);
     ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    viewC.customStartPage = indexPath.row;
     [self presentViewController:viewC animated:YES completion:nil];
 }
 
