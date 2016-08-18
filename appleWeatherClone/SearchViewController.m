@@ -12,6 +12,8 @@
 
 @property(strong,nonatomic) UISearchController *searchDisplayController;
 @property(strong,nonatomic) UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
+
 
 
 @end
@@ -20,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activity stopAnimating];
+    self.activity.hidesWhenStopped = YES;
     self.view.frame = [[UIScreen mainScreen]bounds];
     self.searchBar = [[UISearchBar alloc] init] ;
 //    self.searchDisplayController
@@ -42,9 +46,24 @@
 }
 
 #pragma UISearchBarDelegate
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    
+    [self.searchBar resignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self handleSearch:searchBar];
+}
+
+- (void)handleSearch:(UISearchBar *)searchBar {
+    
+    //check what was passed as the query String and get rid of the keyboard
+    NSLog(@"User searched for %@", searchBar.text);
+    [searchBar resignFirstResponder];
+    [self.activity startAnimating];
+}
+
 /*
 #pragma mark - Navigation
 
