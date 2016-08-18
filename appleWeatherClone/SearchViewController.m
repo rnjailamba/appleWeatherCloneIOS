@@ -8,9 +8,10 @@
 
 #import "SearchViewController.h"
 
-@interface SearchViewController ()
+@interface SearchViewController ()<UISearchBarDelegate>
 
 @property(strong,nonatomic) UISearchController *searchDisplayController;
+@property(strong,nonatomic) UISearchBar *searchBar;
 
 
 @end
@@ -20,16 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.frame = [[UIScreen mainScreen]bounds];
-    UISearchBar *searchBar = [[UISearchBar alloc] init] ;
+    self.searchBar = [[UISearchBar alloc] init] ;
 //    self.searchDisplayController
 //    = [[UISearchController alloc] initWithSearchBar:searchBar
 //                                        contentsController:self];
 //    self.searchDisplayController.searchResultsDelegate = self;
 //    self.searchDisplayController.searchResultsDataSource = self;
 //    self.searchDisplayController.delegate = self;
-    searchBar.showsCancelButton = YES;
-    searchBar.frame = CGRectMake(0, 40, self.view.frame.size.width, 38);
-    [self.view addSubview:searchBar];
+    self.searchBar.showsCancelButton = YES;
+    self.searchBar.frame = CGRectMake(0, 40, self.view.frame.size.width, 38);
+    [self.view addSubview:self.searchBar];
+    self.searchBar.delegate = self;
+    [self.searchBar becomeFirstResponder];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -38,6 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma UISearchBarDelegate
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+}
 /*
 #pragma mark - Navigation
 
