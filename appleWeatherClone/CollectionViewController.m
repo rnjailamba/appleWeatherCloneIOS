@@ -10,6 +10,8 @@
 #import "WeatherBottomViewCell.h"
 #import "ViewController.h"
 #import "SearchViewController.h"
+#import "CurrentViewController.h"
+
 
 @interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,WeatherBottomViewCellDelegate>
 
@@ -28,6 +30,7 @@
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -93,9 +96,16 @@
    
 }
 
+#pragma WeatherBottomViewCellDelegate
+
 -(void)plusClicked:(id)sender{
     SearchViewController *searchVC = [[SearchViewController alloc]initWithNibName:@"SearchViewController" bundle:nil];
     [self presentViewController:searchVC animated:YES completion:nil];
+}
+
+-(void)currentLocationClicked:(id)sender{
+    CurrentViewController *currentVC = [[CurrentViewController alloc]initWithNibName:@"CurrentViewController" bundle:nil];
+    [self presentViewController:currentVC animated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

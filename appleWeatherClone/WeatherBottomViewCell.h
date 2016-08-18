@@ -13,6 +13,7 @@
 @required
 
 -(void)plusClicked:(id)sender;
+-(void)currentLocationClicked:(id)sender;
 
 @end
 
@@ -20,5 +21,6 @@
 
 - (IBAction)plusClicked:(id)sender;
 @property id<WeatherBottomViewCellDelegate> delegate;
+- (IBAction)currentLocationClicked:(id)sender;
 
 @end

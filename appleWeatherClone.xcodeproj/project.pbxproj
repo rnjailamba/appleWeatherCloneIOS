@@ -27,6 +27,8 @@
 		6300D9B41D65A269006A64D8 /* farenheit.png in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9B21D65A269006A64D8 /* farenheit.png */; };
 		6300D9B51D65A269006A64D8 /* celsius.png in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9B31D65A269006A64D8 /* celsius.png */; };
 		6300D9B71D65A31D006A64D8 /* thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9B61D65A31D006A64D8 /* thermometer.png */; };
+		630BFBEE1D66731700B5FE73 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630BFBEC1D66731700B5FE73 /* CurrentViewController.m */; };
+		630BFBEF1D66731700B5FE73 /* CurrentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630BFBED1D66731700B5FE73 /* CurrentViewController.xib */; };
 		63389BCC1D65C40700179D93 /* clear-compressed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BC81D65C40700179D93 /* clear-compressed.jpg */; };
 		63389BCD1D65C40700179D93 /* cold-compressed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BC91D65C40700179D93 /* cold-compressed.jpg */; };
 		63389BCE1D65C40700179D93 /* rainy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BCA1D65C40700179D93 /* rainy.jpg */; };
@@ -64,6 +66,9 @@
 		6300D9B21D65A269006A64D8 /* farenheit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = farenheit.png; sourceTree = "<group>"; };
 		6300D9B31D65A269006A64D8 /* celsius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = celsius.png; sourceTree = "<group>"; };
 		6300D9B61D65A31D006A64D8 /* thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermometer.png; sourceTree = "<group>"; };
+		630BFBEB1D66731700B5FE73 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
+		630BFBEC1D66731700B5FE73 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
+		630BFBED1D66731700B5FE73 /* CurrentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentViewController.xib; sourceTree = "<group>"; };
 		63389BC81D65C40700179D93 /* clear-compressed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-compressed.jpg"; sourceTree = "<group>"; };
 		63389BC91D65C40700179D93 /* cold-compressed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cold-compressed.jpg"; sourceTree = "<group>"; };
 		63389BCA1D65C40700179D93 /* rainy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainy.jpg; sourceTree = "<group>"; };
@@ -142,6 +147,9 @@
 				63389BD51D65E55B00179D93 /* SearchViewController.h */,
 				63389BD61D65E55B00179D93 /* SearchViewController.m */,
 				63389BD71D65E55B00179D93 /* SearchViewController.xib */,
+				630BFBEB1D66731700B5FE73 /* CurrentViewController.h */,
+				630BFBEC1D66731700B5FE73 /* CurrentViewController.m */,
+				630BFBED1D66731700B5FE73 /* CurrentViewController.xib */,
 			);
 			path = appleWeatherClone;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				6300D97E1D62CEDE006A64D8 /* ViewController.xib in Resources */,
 				6300D9B11D65A1AE006A64D8 /* plus.png in Resources */,
 				63389BCC1D65C40700179D93 /* clear-compressed.jpg in Resources */,
+				630BFBEF1D66731700B5FE73 /* CurrentViewController.xib in Resources */,
 				6300D9AA1D659F26006A64D8 /* CollectionViewController.xib in Resources */,
 				6300D9B41D65A269006A64D8 /* farenheit.png in Resources */,
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
@@ -320,6 +329,7 @@
 				6300D9891D642147006A64D8 /* PageContentViewController.m in Sources */,
 				6300D99A1D657480006A64D8 /* PageViewController.m in Sources */,
 				63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */,
+				630BFBEE1D66731700B5FE73 /* CurrentViewController.m in Sources */,
 				6300D9681D62CE15006A64D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

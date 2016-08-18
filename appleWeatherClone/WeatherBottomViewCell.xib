@@ -36,6 +36,16 @@
                         <rect key="frame" x="128" y="128" width="64" height="64"/>
                         <animations/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-mL-ZKu">
+                        <rect key="frame" x="74.5" y="85" width="171" height="30"/>
+                        <animations/>
+                        <state key="normal" title="Get your current location">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="currentLocationClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="MtK-eE-ijd"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -47,6 +57,8 @@
                 <constraint firstItem="G05-7a-ori" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AfO-TB-EIn"/>
                 <constraint firstAttribute="trailing" secondItem="lEU-cE-REB" secondAttribute="trailing" constant="8" id="Ngf-Iu-qzx"/>
                 <constraint firstItem="lEU-cE-REB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Ov2-dk-HVm"/>
+                <constraint firstItem="vjo-mL-ZKu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Xr6-mO-6c8"/>
+                <constraint firstItem="vjo-mL-ZKu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ftb-Ap-eRp"/>
                 <constraint firstAttribute="bottom" secondItem="G05-7a-ori" secondAttribute="bottom" constant="8" id="gny-DD-Lcm"/>
                 <constraint firstAttribute="trailing" secondItem="pmC-kK-5dK" secondAttribute="trailing" constant="8" id="r2X-z5-h2t"/>
             </constraints>

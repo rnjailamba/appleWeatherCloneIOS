@@ -23,4 +23,10 @@
 - (IBAction)plusClicked:(id)sender {
     [self.delegate plusClicked:sender];
 }
+
+
+- (IBAction)currentLocationClicked:(id)sender {
+    [self.delegate currentLocationClicked:sender];
+
+}
 @end
