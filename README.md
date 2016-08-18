@@ -9,3 +9,7 @@ https://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/
 http://code.tutsplus.com/tutorials/using-scrollstyle-with-uipageviewcontroller--mobile-13551   
 http://www.theappguruz.com/blog/uipageviewcontroller-in-ios  
 https://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/   
+
+##Search Bar
+  
+http://stackoverflow.com/questions/34094927/uisearchbar-addsubview-issue  
