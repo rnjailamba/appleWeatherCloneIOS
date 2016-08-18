@@ -61,14 +61,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)startAppleWeatherApp:(id)sender {
     if(self.currentIndex != 0){
         PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
         NSArray *viewControllers = @[startingViewController];
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     }
-
-    
 }
 
 #pragma mark - Page View Controller Data Source
@@ -113,7 +112,6 @@
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.titleText = self.pageTitles[index];
     pageContentViewController.pageIndex = index;
-    
     return pageContentViewController;
 }
 

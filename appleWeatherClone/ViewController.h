@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
++(void)viewControllerWithIndex:(NSInteger) index;
 
 @end
 

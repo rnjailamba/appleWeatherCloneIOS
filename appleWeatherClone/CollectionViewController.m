@@ -8,6 +8,7 @@
 
 #import "CollectionViewController.h"
 #import "WeatherBottomViewCell.h"
+#import "ViewController.h"
 
 @interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -75,6 +76,13 @@
     else{
         return CGSizeMake(self.view.frame.size.width, 80);
     }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didselect%ld",(long)indexPath.row);
+    ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    [self presentViewController:viewC animated:YES completion:nil];
 }
 
 /*
