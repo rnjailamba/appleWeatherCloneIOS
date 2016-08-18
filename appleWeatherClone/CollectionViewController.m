@@ -9,6 +9,7 @@
 #import "CollectionViewController.h"
 #import "WeatherBottomViewCell.h"
 #import "ViewController.h"
+#import "SearchViewController.h"
 
 @interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,WeatherBottomViewCellDelegate>
 
@@ -92,7 +93,8 @@
 }
 
 -(void)plusClicked:(id)sender{
-    
+    SearchViewController *searchVC = [[SearchViewController alloc]initWithNibName:@"SearchViewController" bundle:nil];
+    [self presentViewController:searchVC animated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

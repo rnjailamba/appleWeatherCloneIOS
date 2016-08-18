@@ -30,6 +30,8 @@
 		63389BCD1D65C40700179D93 /* cold-compressed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BC91D65C40700179D93 /* cold-compressed.jpg */; };
 		63389BCE1D65C40700179D93 /* rainy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BCA1D65C40700179D93 /* rainy.jpg */; };
 		63389BCF1D65C40700179D93 /* sunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BCB1D65C40700179D93 /* sunny.jpg */; };
+		63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63389BD61D65E55B00179D93 /* SearchViewController.m */; };
+		63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63389BD71D65E55B00179D93 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,9 @@
 		63389BC91D65C40700179D93 /* cold-compressed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cold-compressed.jpg"; sourceTree = "<group>"; };
 		63389BCA1D65C40700179D93 /* rainy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainy.jpg; sourceTree = "<group>"; };
 		63389BCB1D65C40700179D93 /* sunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunny.jpg; sourceTree = "<group>"; };
+		63389BD51D65E55B00179D93 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		63389BD61D65E55B00179D93 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		63389BD71D65E55B00179D93 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,9 @@
 				6300D9AB1D65A10C006A64D8 /* WeatherBottomViewCell.h */,
 				6300D9AC1D65A10C006A64D8 /* WeatherBottomViewCell.m */,
 				6300D9AD1D65A10C006A64D8 /* WeatherBottomViewCell.xib */,
+				63389BD51D65E55B00179D93 /* SearchViewController.h */,
+				63389BD61D65E55B00179D93 /* SearchViewController.m */,
+				63389BD71D65E55B00179D93 /* SearchViewController.xib */,
 			);
 			path = appleWeatherClone;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
 				6300D9801D62D0EC006A64D8 /* Default-568h@2x.png in Resources */,
 				6300D9B71D65A31D006A64D8 /* thermometer.png in Resources */,
+				63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */,
 				6300D98A1D642147006A64D8 /* PageContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +244,7 @@
 				6300D9A91D659F26006A64D8 /* CollectionViewController.m in Sources */,
 				6300D9891D642147006A64D8 /* PageContentViewController.m in Sources */,
 				6300D99A1D657480006A64D8 /* PageViewController.m in Sources */,
+				63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */,
 				6300D9681D62CE15006A64D8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
