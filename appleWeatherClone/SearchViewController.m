@@ -10,12 +10,26 @@
 
 @interface SearchViewController ()
 
+@property(strong,nonatomic) UISearchController *searchDisplayController;
+
+
 @end
 
 @implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.frame = [[UIScreen mainScreen]bounds];
+    UISearchBar *searchBar = [[UISearchBar alloc] init] ;
+//    self.searchDisplayController
+//    = [[UISearchController alloc] initWithSearchBar:searchBar
+//                                        contentsController:self];
+//    self.searchDisplayController.searchResultsDelegate = self;
+//    self.searchDisplayController.searchResultsDataSource = self;
+//    self.searchDisplayController.delegate = self;
+    searchBar.showsCancelButton = YES;
+    searchBar.frame = CGRectMake(0, 40, self.view.frame.size.width, 38);
+    [self.view addSubview:searchBar];
     // Do any additional setup after loading the view from its nib.
 }
 
