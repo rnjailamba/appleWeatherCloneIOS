@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213FF65FEDF8C1A9BCAC1C60 /* libPods-appleWeatherClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F29508C6499923E009A7A /* libPods-appleWeatherClone.a */; };
 		6300D9681D62CE15006A64D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D9671D62CE15006A64D8 /* main.m */; };
 		6300D96B1D62CE15006A64D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D96A1D62CE15006A64D8 /* AppDelegate.m */; };
 		6300D96E1D62CE15006A64D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D96D1D62CE15006A64D8 /* ViewController.m */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B8F29508C6499923E009A7A /* libPods-appleWeatherClone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appleWeatherClone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6300D9631D62CE15006A64D8 /* appleWeatherClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleWeatherClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6300D9671D62CE15006A64D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6300D9691D62CE15006A64D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		63389BD51D65E55B00179D93 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		63389BD61D65E55B00179D93 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		63389BD71D65E55B00179D93 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.debug.xcconfig"; sourceTree = "<group>"; };
+		C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,18 +80,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213FF65FEDF8C1A9BCAC1C60 /* libPods-appleWeatherClone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CF4D8DD1B96EC00ABAAE4B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */,
+				C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6300D95A1D62CE15006A64D8 = {
 			isa = PBXGroup;
 			children = (
 				6300D97F1D62D0EC006A64D8 /* Default-568h@2x.png */,
 				6300D9651D62CE15006A64D8 /* appleWeatherClone */,
 				6300D9641D62CE15006A64D8 /* Products */,
+				1CF4D8DD1B96EC00ABAAE4B6 /* Pods */,
+				BA7E408B7932AEE31DB4370F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +170,14 @@
 			name = Graphics;
 			sourceTree = "<group>";
 		};
+		BA7E408B7932AEE31DB4370F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B8F29508C6499923E009A7A /* libPods-appleWeatherClone.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6300D97A1D62CE15006A64D8 /* Build configuration list for PBXNativeTarget "appleWeatherClone" */;
 			buildPhases = (
+				6C21E1591282A42314723879 /* [CP] Check Pods Manifest.lock */,
 				6300D95F1D62CE15006A64D8 /* Sources */,
 				6300D9601D62CE15006A64D8 /* Frameworks */,
 				6300D9611D62CE15006A64D8 /* Resources */,
+				3EB9E972F02BEFE6FFEBD67A /* [CP] Embed Pods Frameworks */,
+				02A115F9D65DDF709E61FA3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +259,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A115F9D65DDF709E61FA3E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EB9E972F02BEFE6FFEBD67A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C21E1591282A42314723879 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6300D95F1D62CE15006A64D8 /* Sources */ = {
@@ -336,6 +411,7 @@
 		};
 		6300D97B1D62CE15006A64D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = appleWeatherClone/Info.plist;
@@ -347,6 +423,7 @@
 		};
 		6300D97C1D62CE15006A64D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = appleWeatherClone/Info.plist;
