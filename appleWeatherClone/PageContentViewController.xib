@@ -21,8 +21,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE8-Xs-gOp">
-                    <rect key="frame" x="60" y="37" width="200" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE8-Xs-gOp">
+                    <rect key="frame" x="139" y="37" width="42" height="20.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,10 +32,12 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="JE8-Xs-gOp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="3lc-45-BaJ"/>
                 <constraint firstItem="8zc-sh-ewv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IV4-UE-ots"/>
                 <constraint firstAttribute="bottom" secondItem="8zc-sh-ewv" secondAttribute="bottom" id="WHA-15-0pO"/>
                 <constraint firstItem="8zc-sh-ewv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XIA-3J-5tv"/>
                 <constraint firstAttribute="trailing" secondItem="8zc-sh-ewv" secondAttribute="trailing" id="bfa-zo-9fH"/>
+                <constraint firstItem="JE8-Xs-gOp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nW8-ce-L3T"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
