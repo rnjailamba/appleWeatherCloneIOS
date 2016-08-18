@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PageContentViewController.h"
 #import "PageViewController.h"
+#import "CollectionViewController.h"
 
 
 @interface ViewController () < UIPageViewControllerDataSource >
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSArray *pageTitles;
 @property (strong, nonatomic) NSArray *pageImages;
 @property (nonatomic) NSInteger currentIndex;
+- (IBAction)stackClicked:(id)sender;
 
 @end
 
@@ -124,6 +126,24 @@
 {
     return 0;
 }
+
+
+
+- (IBAction)stackClicked:(id)sender {
+    CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithNibName:@"CollectionViewController" bundle:nil];
+    [self presentViewController:collectionVC animated:YES completion:nil];
+    
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 

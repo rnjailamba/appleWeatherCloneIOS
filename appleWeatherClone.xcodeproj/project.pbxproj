@@ -21,6 +21,9 @@
 		6300D9931D6424F1006A64D8 /* sunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6300D98F1D6424F1006A64D8 /* sunny.jpg */; };
 		6300D9991D657480006A64D8 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9961D657480006A64D8 /* PageViewController.xib */; };
 		6300D99A1D657480006A64D8 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D9981D657480006A64D8 /* PageViewController.m */; };
+		6300D9A01D659D34006A64D8 /* stacked.png in Resources */ = {isa = PBXBuildFile; fileRef = 6300D99F1D659D34006A64D8 /* stacked.png */; };
+		6300D9A91D659F26006A64D8 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6300D9A71D659F26006A64D8 /* CollectionViewController.m */; };
+		6300D9AA1D659F26006A64D8 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6300D9A81D659F26006A64D8 /* CollectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,10 @@
 		6300D9961D657480006A64D8 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
 		6300D9971D657480006A64D8 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		6300D9981D657480006A64D8 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		6300D99F1D659D34006A64D8 /* stacked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stacked.png; sourceTree = "<group>"; };
+		6300D9A61D659F26006A64D8 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		6300D9A71D659F26006A64D8 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		6300D9A81D659F26006A64D8 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +99,9 @@
 				6300D9981D657480006A64D8 /* PageViewController.m */,
 				6300D9961D657480006A64D8 /* PageViewController.xib */,
 				6300D9661D62CE15006A64D8 /* Supporting Files */,
+				6300D9A61D659F26006A64D8 /* CollectionViewController.h */,
+				6300D9A71D659F26006A64D8 /* CollectionViewController.m */,
+				6300D9A81D659F26006A64D8 /* CollectionViewController.xib */,
 			);
 			path = appleWeatherClone;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 		6300D98B1D6424B6006A64D8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				6300D99F1D659D34006A64D8 /* stacked.png */,
 				6300D98C1D6424F1006A64D8 /* clear-compressed.jpg */,
 				6300D98D1D6424F1006A64D8 /* cold-compressed.jpg */,
 				6300D98E1D6424F1006A64D8 /* rainy.jpg */,
@@ -172,10 +183,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6300D9A01D659D34006A64D8 /* stacked.png in Resources */,
 				6300D9991D657480006A64D8 /* PageViewController.xib in Resources */,
 				6300D9901D6424F1006A64D8 /* clear-compressed.jpg in Resources */,
 				6300D9931D6424F1006A64D8 /* sunny.jpg in Resources */,
 				6300D97E1D62CEDE006A64D8 /* ViewController.xib in Resources */,
+				6300D9AA1D659F26006A64D8 /* CollectionViewController.xib in Resources */,
 				6300D9911D6424F1006A64D8 /* cold-compressed.jpg in Resources */,
 				6300D9921D6424F1006A64D8 /* rainy.jpg in Resources */,
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
@@ -193,6 +206,7 @@
 			files = (
 				6300D96E1D62CE15006A64D8 /* ViewController.m in Sources */,
 				6300D96B1D62CE15006A64D8 /* AppDelegate.m in Sources */,
+				6300D9A91D659F26006A64D8 /* CollectionViewController.m in Sources */,
 				6300D9891D642147006A64D8 /* PageContentViewController.m in Sources */,
 				6300D99A1D657480006A64D8 /* PageViewController.m in Sources */,
 				6300D9681D62CE15006A64D8 /* main.m in Sources */,
