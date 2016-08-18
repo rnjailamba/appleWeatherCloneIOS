@@ -25,6 +25,13 @@
                         <rect key="frame" x="280" y="8" width="32" height="32"/>
                         <animations/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEU-cE-REB">
+                        <rect key="frame" x="280" y="8" width="32" height="32"/>
+                        <animations/>
+                        <connections>
+                            <action selector="plusClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="MMu-9O-Jlr"/>
+                        </connections>
+                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thermometer.png" translatesAutoresizingMaskIntoConstraints="NO" id="G05-7a-ori">
                         <rect key="frame" x="128" y="128" width="64" height="64"/>
                         <animations/>

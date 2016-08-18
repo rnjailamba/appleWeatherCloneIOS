@@ -10,7 +10,7 @@
 #import "WeatherBottomViewCell.h"
 #import "ViewController.h"
 
-@interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,WeatherBottomViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *pageTitles;
@@ -53,6 +53,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == [self.pageTitles count]){
         WeatherBottomViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"WeatherBottomViewCell" forIndexPath:indexPath];
+        cell.delegate = self;
         return cell;
         
     }
@@ -90,6 +91,9 @@
    
 }
 
+-(void)plusClicked:(id)sender{
+    
+}
 /*
 #pragma mark - Navigation
 

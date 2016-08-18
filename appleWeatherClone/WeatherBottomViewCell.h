@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WeatherBottomViewCellDelegate <NSObject>
+
+@required
+
+-(void)plusClicked:(id)sender;
+
+@end
+
 @interface WeatherBottomViewCell : UICollectionViewCell
+
+- (IBAction)plusClicked:(id)sender;
+@property id<WeatherBottomViewCellDelegate> delegate;
 
 @end

@@ -8,6 +8,11 @@
 
 #import "WeatherBottomViewCell.h"
 
+@interface WeatherBottomViewCell()
+
+
+@end
+
 @implementation WeatherBottomViewCell
 
 - (void)awakeFromNib {
@@ -15,4 +20,7 @@
     
 }
 
+- (IBAction)plusClicked:(id)sender {
+    [self.delegate plusClicked:sender];
+}
 @end
