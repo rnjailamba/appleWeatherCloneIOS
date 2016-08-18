@@ -18,9 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil]];
-    self.window.rootViewController = navigation;
+    self.window.rootViewController = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -23,6 +23,7 @@
     self.view.frame = [[UIScreen mainScreen]bounds];
     self.imageView.image = [UIImage imageNamed:self.imageFile];
     self.label.text = self.titleText;
+    self.imageView.clipsToBounds = YES;
     
 }
 

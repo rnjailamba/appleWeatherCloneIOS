@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-Fi-ztx">
-                    <rect key="frame" x="69" y="269" width="183" height="30"/>
+                    <rect key="frame" x="110" y="530" width="101" height="30"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Start Apple Weather App">
+                    <state key="normal" title="START AGAIN">
                         <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -28,9 +28,9 @@
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.99247821927267399" green="1" blue="0.94038075360304751" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerY" secondItem="b5Z-NY-Tfh" secondAttribute="centerY" id="RCC-4B-gYB"/>
+                <constraint firstAttribute="bottom" secondItem="FE4-Fi-ztx" secondAttribute="bottom" constant="8" id="otv-Hp-cAJ"/>
                 <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerX" secondItem="b5Z-NY-Tfh" secondAttribute="centerX" id="zQz-OW-mpD"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

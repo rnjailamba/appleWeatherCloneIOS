@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PageContentViewController.h"
+#import "PageViewController.h"
 
 
 @interface ViewController () < UIPageViewControllerDataSource >
@@ -28,7 +29,26 @@
     _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
 
+    
+    // Create page view controller
+    self.pageViewController =  [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                             options:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:0.0f] forKey:UIPageViewControllerOptionInterPageSpacingKey]];
+    
+    _pageViewController.dataSource = self;
 
+    self.pageViewController.dataSource = self;
+    
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = @[startingViewController];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    // Change the size of page view controller
+    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 45);
+    
+    [self addChildViewController:_pageViewController];
+    [self.view addSubview:_pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
 
 }
 
@@ -38,8 +58,11 @@
 }
 
 - (IBAction)startAppleWeatherApp:(id)sender {
-    PageContentViewController *pageVC = [[PageContentViewController alloc]initWithNibName:@"PageContentViewController" bundle:nil];
-    [self.navigationController pushViewController:pageVC animated:YES];
+    
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = @[startingViewController];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
 }
 
 #pragma mark - Page View Controller Data Source
