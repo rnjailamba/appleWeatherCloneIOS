@@ -21,18 +21,18 @@
                         <rect key="frame" x="48" y="8" width="32" height="32"/>
                         <animations/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="pmC-kK-5dK">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="pmC-kK-5dK">
                         <rect key="frame" x="280" y="8" width="32" height="32"/>
                         <animations/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEU-cE-REB">
-                        <rect key="frame" x="280" y="8" width="32" height="32"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEU-cE-REB">
+                        <rect key="frame" x="282" y="8" width="30" height="30"/>
                         <animations/>
                         <connections>
                             <action selector="plusClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="MMu-9O-Jlr"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="thermometer.png" translatesAutoresizingMaskIntoConstraints="NO" id="G05-7a-ori">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer.png" translatesAutoresizingMaskIntoConstraints="NO" id="G05-7a-ori">
                         <rect key="frame" x="128" y="128" width="64" height="64"/>
                         <animations/>
                     </imageView>
@@ -42,6 +42,14 @@
             </view>
             <animations/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pmC-kK-5dK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="6FB-fi-gSe"/>
+                <constraint firstItem="G05-7a-ori" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AfO-TB-EIn"/>
+                <constraint firstAttribute="trailing" secondItem="lEU-cE-REB" secondAttribute="trailing" constant="8" id="Ngf-Iu-qzx"/>
+                <constraint firstItem="lEU-cE-REB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Ov2-dk-HVm"/>
+                <constraint firstAttribute="bottom" secondItem="G05-7a-ori" secondAttribute="bottom" constant="8" id="gny-DD-Lcm"/>
+                <constraint firstAttribute="trailing" secondItem="pmC-kK-5dK" secondAttribute="trailing" constant="8" id="r2X-z5-h2t"/>
+            </constraints>
         </collectionViewCell>
     </objects>
     <resources>
