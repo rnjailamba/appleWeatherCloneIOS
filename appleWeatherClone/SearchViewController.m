@@ -14,8 +14,6 @@
 @property(strong,nonatomic) UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
-
-
 @end
 
 @implementation SearchViewController
@@ -25,19 +23,26 @@
     [self.activity stopAnimating];
     self.activity.hidesWhenStopped = YES;
     self.view.frame = [[UIScreen mainScreen]bounds];
+    [self searchBarSetup];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)searchBarSetup{
     self.searchBar = [[UISearchBar alloc] init] ;
-//    self.searchDisplayController
-//    = [[UISearchController alloc] initWithSearchBar:searchBar
-//                                        contentsController:self];
-//    self.searchDisplayController.searchResultsDelegate = self;
-//    self.searchDisplayController.searchResultsDataSource = self;
-//    self.searchDisplayController.delegate = self;
     self.searchBar.showsCancelButton = YES;
     self.searchBar.frame = CGRectMake(0, 40, self.view.frame.size.width, 38);
     [self.view addSubview:self.searchBar];
     self.searchBar.delegate = self;
     [self.searchBar becomeFirstResponder];
-    // Do any additional setup after loading the view from its nib.
+    //black color on the searchbar
+    self.searchBar.barTintColor = [UIColor blackColor];
+    //white color for the cancel button
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTintColor:[UIColor whiteColor]];
+    //gray background for the text field
+    UITextField *txfSearchField = [self.searchBar valueForKey:@"_searchField"];
+    txfSearchField.backgroundColor = [UIColor darkGrayColor];
+    txfSearchField.textColor = [UIColor whiteColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +59,16 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self handleSearch:searchBar];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"%@",searchText);
 }
 
 - (void)handleSearch:(UISearchBar *)searchBar {

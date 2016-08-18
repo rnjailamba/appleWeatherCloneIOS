@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.currentIndex = 0;
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
-    _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
+    _pageTitles = @[@"Rainy",@"Sunny",@"Clear",@"Cold"];
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
 
     
