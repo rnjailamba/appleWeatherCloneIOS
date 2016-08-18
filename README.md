@@ -12,4 +12,5 @@ https://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/
 
 ##Search Bar
   
-http://stackoverflow.com/questions/34094927/uisearchbar-addsubview-issue  
+http://stackoverflow.com/questions/34094927/uisearchbar-addsubview-issue    
+http://stackoverflow.com/questions/8696260/creating-a-uisearchdisplaycontroller-programmatically  
