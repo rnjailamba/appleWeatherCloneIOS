@@ -23,8 +23,22 @@
     [self.activity stopAnimating];
     self.activity.hidesWhenStopped = YES;
     self.view.frame = [[UIScreen mainScreen]bounds];
+    
     [self searchBarSetup];
+    [self aboveSearchBarSetup];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)aboveSearchBarSetup{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    view.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:view];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 20)];
+    label.textColor = [UIColor whiteColor];
+    label.font  = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"Enter city,postcode or Airport location";
+    [self.view addSubview:label];
 }
 
 -(void)searchBarSetup{
