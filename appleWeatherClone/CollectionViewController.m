@@ -78,10 +78,16 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didselect%ld",(long)indexPath.row);
-    ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
-    viewC.customStartPage = indexPath.row;
-    [self presentViewController:viewC animated:YES completion:nil];
+    if(indexPath.row < [self.pageTitles count]){
+        NSLog(@"didselect%ld",(long)indexPath.row);
+        ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+        viewC.customStartPage = indexPath.row;
+        [self presentViewController:viewC animated:YES completion:nil];
+    }
+    else{
+        
+    }
+   
 }
 
 /*
