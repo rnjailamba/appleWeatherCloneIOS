@@ -23,12 +23,14 @@
     self.view.frame = [[UIScreen mainScreen]bounds];
     self.imageView.image = [UIImage imageNamed:self.imageFile];
     self.label.text = self.titleText;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
