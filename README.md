@@ -16,4 +16,7 @@ http://stackoverflow.com/questions/34094927/uisearchbar-addsubview-issue
 http://stackoverflow.com/questions/8696260/creating-a-uisearchdisplaycontroller-programmatically 
 UISearchDisplayController is deprecated , instead use UISearchController
 http://stackoverflow.com/questions/34585625/how-add-search-option-for-a-tableview-in-ios-9-using-uisearchcontroller-objecti   
-http://stackoverflow.com/questions/36503790/working-with-search-bar-on-ios-9
+http://stackoverflow.com/questions/36503790/working-with-search-bar-on-ios-9  
+
+Google API to get autocomplete of the results  
+https://developers.google.com/places/ios-api/autocomplete#get_place_predictions_programmatically  
