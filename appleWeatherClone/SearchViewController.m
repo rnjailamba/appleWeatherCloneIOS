@@ -39,11 +39,16 @@
 }
 
 -(void)collectionViewSetup{
-    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, 100);
+    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumLineSpacing = 0;
 
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 78, self.view.frame.size.width, self.view.frame.size.height - 78) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 78, self.view.frame.size.width, self.view.frame.size.height - 78) collectionViewLayout:flowLayout];
     self.collectionView.backgroundColor = [UIColor yellowColor];
     self.collectionView.delegate = self;
+    self.collectionView.bounces = YES;
+    self.collectionView.alwaysBounceVertical = YES;
     self.collectionView.dataSource = self;
 }
 
@@ -95,7 +100,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
