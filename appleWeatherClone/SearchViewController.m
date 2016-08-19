@@ -16,6 +16,7 @@
 @property(strong,nonatomic) UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) NSMutableArray *results;
 
 @end
 
@@ -29,6 +30,7 @@
     [self.activity stopAnimating];
     self.activity.hidesWhenStopped = YES;
     self.view.frame = [[UIScreen mainScreen]bounds];
+    self.results = [NSMutableArray new];
     [self searchBarSetup];
     [self aboveSearchBarSetup];
     
@@ -101,7 +103,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return [self.results count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -131,6 +133,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     NSLog(@"%@",searchText);
+    self.results = [NSMutableArray new];
     [self.collectionView setHidden:YES];
     [self.activity startAnimating];
     GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
@@ -140,8 +143,10 @@
                               bounds:nil
                               filter:filter
                             callback:^(NSArray *results, NSError *error) {
+                                [self.activity stopAnimating];
                                 if (error != nil) {
                                     NSLog(@"Autocomplete error %@", [error localizedDescription]);
+                                    self.results = [NSMutableArray new];
                                     return;
                                 }
 //                                locality
@@ -150,12 +155,13 @@
 //                                country
 //                                administrative_area_level_1
 //                                administrative_area_level_2
-                                [self.activity stopAnimating];
+                                [self.collectionView reloadData];
                                 [self.collectionView setHidden:NO];
                                 for (GMSAutocompletePrediction* result in results) {
                                     for(NSString *val in result.types){
                                         if ([val isEqualToString:@"locality"]) {
                                             NSLog(@"Result '%@' with placeID %@", result.attributedPrimaryText.string, result.placeID);
+                                            [self.results addObject:result.attributedPrimaryText];
                                             break;
                                         }
                                     }
