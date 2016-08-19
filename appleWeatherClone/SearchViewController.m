@@ -127,7 +127,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected %ld",(long)indexPath.row);
     NSLog(@"selected %@",[self.results objectAtIndex:indexPath.row]);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"MyCacheUpdatedNotification" object:[self.results objectAtIndex:indexPath.row]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"placeNotification" object:[self.results objectAtIndex:indexPath.row]];
     [self handleViewDismissal];
 }
 

@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.currentIndex = 0;
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
-    _pageTitles = @[@"Rainy",@"Sunny",@"Clear",@"Cold"];
+    _pageTitles = @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"];
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
 
     

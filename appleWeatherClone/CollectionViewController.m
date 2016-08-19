@@ -16,21 +16,21 @@
 @interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,WeatherBottomViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSArray *pageTitles;
-@property (strong, nonatomic) NSArray *pageImages;
+@property (strong, nonatomic) NSMutableArray *pageTitles;
+@property (strong, nonatomic) NSMutableArray *pageImages;
 @end
 
 @implementation CollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"placeNotification" object:nil];
     [self registrNib];
     self.view.frame = [[UIScreen mainScreen]bounds];
-    _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
-    _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
+    _pageTitles = [NSMutableArray arrayWithArray: @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]];
+    _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"MyCacheUpdatedNotification" object:nil];
 
     
     // Do any additional setup after loading the view from its nib.
@@ -38,6 +38,9 @@
 
 - (void)cacheUpdated:(NSNotification *)notification {
    
+    NSString *location = notification.object;
+    [self.pageTitles addObject:location];
+    [self.collectionView reloadData];
     NSLog(@"notification recieved %@",notification.object);
 
 }
@@ -72,8 +75,17 @@
     }
     else{
         UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"random" forIndexPath:indexPath];
+        NSArray* subviews = [cell.contentView subviews];
+        for (UIView* subview in subviews) {
+            [subview removeFromSuperview];
+        }
         cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
         cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 150, 40)];
+        label.text = [self.pageTitles objectAtIndex:indexPath.row];
+        [label setFont:[UIFont  systemFontOfSize:24 weight:UIFontWeightMedium]];
+        label.textColor = [UIColor whiteColor];
+        [cell.contentView addSubview:label];
         return cell;
     }
 
