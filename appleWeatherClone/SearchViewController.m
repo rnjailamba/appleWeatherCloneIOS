@@ -147,8 +147,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"%@",searchText);
     self.results = [NSMutableArray new];
+    NSLog(@"%@",searchText);
     [self.collectionView setHidden:YES];
     [self.activity startAnimating];
     GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
@@ -158,6 +158,7 @@
                               bounds:nil
                               filter:filter
                             callback:^(NSArray *results, NSError *error) {
+                                self.results = [NSMutableArray new];
                                 [self.activity stopAnimating];
                                 if (error != nil) {
                                     NSLog(@"Autocomplete error %@", [error localizedDescription]);
