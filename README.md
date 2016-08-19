@@ -21,3 +21,6 @@ http://stackoverflow.com/questions/36503790/working-with-search-bar-on-ios-9
 ##Google API to get autocomplete of the results  
 https://developers.google.com/places/ios-api/autocomplete#get_place_predictions_programmatically     
 http://nevan.net/2014/09/core-location-manager-changes-in-ios-8/
+
+##CollectionView programmatically  
+http://stackoverflow.com/questions/17856055/creating-a-uicollectionview-programmatically
