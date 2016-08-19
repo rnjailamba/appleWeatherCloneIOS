@@ -72,7 +72,7 @@
         self.addressLabel.numberOfLines = 0;
         [self.addressLabel sizeToFit];
         self.addressLabel.textAlignment = NSTextAlignmentCenter;
-        self.addressLabel.textColor = [UIColor yellowColor];
+        self.addressLabel.textColor = [UIColor blueColor];
         self.addressLabel.frame = CGRectMake((self.view.frame.size.width - self.addressLabel.frame.size.width)/2, self.addressLabel.frame.origin.y, self.addressLabel.frame.size.width, self.addressLabel.frame.size.height);
         [self.view addSubview:self.addressLabel];
         
