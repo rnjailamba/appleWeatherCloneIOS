@@ -30,8 +30,16 @@
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"MyCacheUpdatedNotification" object:nil];
+
     
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)cacheUpdated:(NSNotification *)notification {
+   
+    NSLog(@"notification recieved %@",notification.object);
+
 }
 
 -(void)registrNib{
@@ -107,6 +115,8 @@
     CurrentViewController *currentVC = [[CurrentViewController alloc]initWithNibName:@"CurrentViewController" bundle:nil];
     [self presentViewController:currentVC animated:YES completion:nil];
 }
+
+
 /*
 #pragma mark - Navigation
 
