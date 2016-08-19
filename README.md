@@ -23,4 +23,5 @@ https://developers.google.com/places/ios-api/autocomplete#get_place_predictions_
 http://nevan.net/2014/09/core-location-manager-changes-in-ios-8/
 
 ##CollectionView programmatically  
-http://stackoverflow.com/questions/17856055/creating-a-uicollectionview-programmatically
+http://stackoverflow.com/questions/17856055/creating-a-uicollectionview-programmatically  
+http://stackoverflow.com/questions/16069357/uicollectionview-does-not-scroll
