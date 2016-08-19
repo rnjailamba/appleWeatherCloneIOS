@@ -41,13 +41,23 @@
     NSString *location = notification.object;
     [self.pageTitles addObject:location];
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setObject:location forKey:@"name"];
-    [mutableArray addObject:dict];
-    [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
-    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
-    [self.collectionView reloadData];
-    NSLog(@"notification recieved %@",notification.object);
+    BOOL found = NO;
+    for(NSDictionary *val in mutableArray){
+        if([[val objectForKey:@"name"] isEqualToString: location]){
+            found = YES;
+            break;
+        }
+    }
+    if(found == NO){
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        [dict setObject:location forKey:@"name"];
+        [mutableArray addObject:dict];
+        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+        [self.collectionView reloadData];
+
+    }
+       NSLog(@"notification recieved %@",notification.object);
 
 }
 
