@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentViewController">
             <connections>
+                <outlet property="activity" destination="ebJ-Bq-0dP" id="0gp-Zr-I7F"/>
                 <outlet property="backButton" destination="7LQ-uc-Nvz" id="aTc-uS-qlh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yourCurrentLocationLabel" destination="Aid-0T-pk3" id="7JW-eo-0e1"/>
@@ -34,9 +35,17 @@
                         <action selector="backClicked:" destination="-1" eventType="touchUpInside" id="OVx-ER-IUL"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-Bq-0dP">
+                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                    <animations/>
+                </activityIndicatorView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ebJ-Bq-0dP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NQm-xG-1bY"/>
+                <constraint firstItem="ebJ-Bq-0dP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uL8-vd-Cz3"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

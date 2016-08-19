@@ -18,6 +18,7 @@
 - (IBAction)backClicked:(id)sender;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UILabel *yourCurrentLocationLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 
 @end
@@ -28,12 +29,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activity hidesWhenStopped];
+    [self.activity startAnimating];
     [self.nameLabel sizeToFit];
     _placesClient = [GMSPlacesClient sharedClient];
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    
+
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
@@ -41,6 +44,9 @@
     [_placesClient currentPlaceWithCallback:^(GMSPlaceLikelihoodList *placeLikelihoodList, NSError *error){
         NSString *name = nil;
         NSString *address = nil;
+        [self.activity stopAnimating];
+        [self.activity setHidden:YES];
+
         if (error != nil) {
             NSLog(@"Pick Place error %@", [error localizedDescription]);
             return;
@@ -109,7 +115,7 @@
 // Location Manager Delegate Methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"%@", [locations lastObject]);
+//    NSLog(@"%@", [locations lastObject]);
 }
 
 
