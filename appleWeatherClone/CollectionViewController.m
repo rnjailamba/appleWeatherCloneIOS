@@ -94,9 +94,9 @@
         timelabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:timelabel];
         
-        UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 80, 24, 60, 56)];
+        UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
         degreeLabel.text = @"23*";
-        [degreeLabel setFont:[UIFont  systemFontOfSize:35 weight:UIFontWeightMedium]];
+        [degreeLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
         degreeLabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:degreeLabel];
         
