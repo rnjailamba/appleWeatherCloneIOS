@@ -30,6 +30,7 @@
     [self.activity stopAnimating];
     self.activity.hidesWhenStopped = YES;
     self.view.frame = [[UIScreen mainScreen]bounds];
+    self.view.backgroundColor = [UIColor darkGrayColor];
     self.results = [NSMutableArray new];
     [self searchBarSetup];
     [self aboveSearchBarSetup];
@@ -46,7 +47,7 @@
     flowLayout.minimumLineSpacing = 0;
 
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 78, self.view.frame.size.width, self.view.frame.size.height - 78) collectionViewLayout:flowLayout];
-    self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.backgroundColor = [UIColor darkGrayColor];
     self.collectionView.delegate = self;
     self.collectionView.bounces = YES;
     self.collectionView.alwaysBounceVertical = YES;
@@ -111,6 +112,11 @@
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.frame = CGRectMake(0, 0 + indexPath.row*60, self.view.frame.size.width, 60);
     cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width, 20)];
+    label.text =  [self.results objectAtIndex:indexPath.row];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    [cell addSubview:label];
     return cell;
 }
 
@@ -161,7 +167,7 @@
                                     for(NSString *val in result.types){
                                         if ([val isEqualToString:@"locality"]) {
                                             NSLog(@"Result '%@' with placeID %@", result.attributedPrimaryText.string, result.placeID);
-                                            [self.results addObject:result.attributedPrimaryText];
+                                            [self.results addObject:result.attributedPrimaryText.string];
                                             break;
                                         }
                                     }
