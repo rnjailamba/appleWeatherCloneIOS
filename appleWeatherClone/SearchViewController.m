@@ -110,21 +110,30 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    NSArray* subviews = [cell.contentView subviews];
+    for (UIView* subview in subviews) {
+        [subview removeFromSuperview];
+    }
     cell.frame = CGRectMake(0, 0 + indexPath.row*60, self.view.frame.size.width, 60);
     cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width, 20)];
     label.text =  [self.results objectAtIndex:indexPath.row];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentLeft;
-    [cell addSubview:label];
+    [cell.contentView addSubview:label];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"selected %ld",(long)indexPath.row);
+    NSLog(@"selected %@",[self.results objectAtIndex:indexPath.row]);
+    [self handleViewDismissal];
 }
 
 #pragma UISearchBarDelegate
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self.searchBar resignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self handleViewDismissal];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -173,6 +182,12 @@
                                     }
                                 }
                             }];
+}
+
+-(void)handleViewDismissal{
+    [self.searchBar resignFirstResponder];
+    [self.collectionView setHidden:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)handleSearch:(UISearchBar *)searchBar {
