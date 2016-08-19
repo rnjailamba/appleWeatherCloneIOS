@@ -61,8 +61,9 @@
         self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.yourCurrentLocationLabel.frame.origin.y+self.yourCurrentLocationLabel.frame.size.height + 20, self.view.frame.size.width, 20)];
         self.nameLabel.text = name;
         self.nameLabel.numberOfLines = 0;
-//        [self.nameLabel sizeToFit];
+        [self.nameLabel sizeToFit];
         self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.frame = CGRectMake((self.view.frame.size.width - self.nameLabel.frame.size.width)/2, self.nameLabel.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
         [self.view addSubview:self.nameLabel];
         
         self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.nameLabel.frame.origin.y+self.nameLabel.frame.size.height + 20, self.view.frame.size.width, 20)];
@@ -70,6 +71,7 @@
         self.addressLabel.numberOfLines = 0;
         [self.addressLabel sizeToFit];
         self.addressLabel.textAlignment = NSTextAlignmentCenter;
+        self.addressLabel.frame = CGRectMake((self.view.frame.size.width - self.addressLabel.frame.size.width)/2, self.addressLabel.frame.origin.y, self.addressLabel.frame.size.width, self.addressLabel.frame.size.height);
         [self.view addSubview:self.addressLabel];
         
     }];
