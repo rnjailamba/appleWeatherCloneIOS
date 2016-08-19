@@ -63,6 +63,7 @@
         self.nameLabel.numberOfLines = 0;
         [self.nameLabel sizeToFit];
         self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.textColor = [UIColor redColor];
         self.nameLabel.frame = CGRectMake((self.view.frame.size.width - self.nameLabel.frame.size.width)/2, self.nameLabel.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
         [self.view addSubview:self.nameLabel];
         
@@ -71,6 +72,7 @@
         self.addressLabel.numberOfLines = 0;
         [self.addressLabel sizeToFit];
         self.addressLabel.textAlignment = NSTextAlignmentCenter;
+        self.addressLabel.textColor = [UIColor yellowColor];
         self.addressLabel.frame = CGRectMake((self.view.frame.size.width - self.addressLabel.frame.size.width)/2, self.addressLabel.frame.origin.y, self.addressLabel.frame.size.width, self.addressLabel.frame.size.height);
         [self.view addSubview:self.addressLabel];
         
