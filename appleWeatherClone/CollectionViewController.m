@@ -81,11 +81,25 @@
         }
         cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
         cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 150, 40)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 40)];
         label.text = [self.pageTitles objectAtIndex:indexPath.row];
-        [label setFont:[UIFont  systemFontOfSize:24 weight:UIFontWeightMedium]];
+        [label setFont:[UIFont  systemFontOfSize:28 weight:UIFontWeightMedium]];
         label.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];
+        
+        UILabel *timelabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 24, 100, 16)];
+        timelabel.text = @"7:24 PM";
+        [timelabel setFont:[UIFont  systemFontOfSize:12 weight:UIFontWeightMedium]];
+        timelabel.textColor = [UIColor whiteColor];
+        [cell.contentView addSubview:timelabel];
+        
+        UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 80, 24, 60, 56)];
+        degreeLabel.text = @"23*";
+        [degreeLabel setFont:[UIFont  systemFontOfSize:35 weight:UIFontWeightMedium]];
+        degreeLabel.textColor = [UIColor whiteColor];
+        [cell.contentView addSubview:degreeLabel];
+        
         return cell;
     }
 
