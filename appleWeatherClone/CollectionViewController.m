@@ -27,7 +27,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"placeNotification" object:nil];
     [self registrNib];
     self.view.frame = [[UIScreen mainScreen]bounds];
-    _pageTitles = [NSMutableArray arrayWithArray: @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]];
+    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -40,6 +40,12 @@
    
     NSString *location = notification.object;
     [self.pageTitles addObject:location];
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setObject:location forKey:@"name"];
+    [mutableArray addObject:dict];
+    [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     [self.collectionView reloadData];
     NSLog(@"notification recieved %@",notification.object);
 
@@ -83,7 +89,7 @@
         cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 40)];
-        label.text = [self.pageTitles objectAtIndex:indexPath.row];
+        label.text = [[self.pageTitles objectAtIndex:indexPath.row] objectForKey:@"name"];
         [label setFont:[UIFont  systemFontOfSize:28 weight:UIFontWeightMedium]];
         label.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];

@@ -17,7 +17,7 @@
 - (IBAction)startAppleWeatherApp:(id)sender;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSArray *pageTitles;
+@property (strong, nonatomic) NSMutableArray *pageTitles;
 @property (strong, nonatomic) NSArray *pageImages;
 @property (nonatomic) NSInteger currentIndex;
 - (IBAction)stackClicked:(id)sender;
@@ -30,9 +30,23 @@
     [super viewDidLoad];
     self.currentIndex = 0;
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
-    _pageTitles = @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"];
+//    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+//    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
+        NSString *valueToSave = @"true";
+        [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
+        NSMutableArray *mutableArray = [[NSMutableArray alloc]init];
+        for(NSString *val in @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]){
+            NSMutableDictionary *dict = [NSMutableDictionary new];
+            [dict setObject:val forKey:@"name"];
+            [mutableArray addObject:dict];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
+    }
+    _pageTitles = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     
     // Create page view controller
     self.pageViewController =  [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
@@ -115,8 +129,8 @@
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [[PageContentViewController alloc]initWithNibName:@"PageContentViewController" bundle:nil];
-    pageContentViewController.imageFile = self.pageImages[index];
-    pageContentViewController.titleText = self.pageTitles[index];
+    pageContentViewController.imageFile = self.pageImages[index%4];
+    pageContentViewController.titleText = [[self.pageTitles objectAtIndex:index] objectForKey:@"name"];
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
 }
