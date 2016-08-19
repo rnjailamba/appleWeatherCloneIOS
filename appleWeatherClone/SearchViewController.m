@@ -35,12 +35,11 @@
     _placesClient = [GMSPlacesClient sharedClient];
     [self collectionViewSetup];
     [self registerNib];
-    [self.view addSubview:self.collectionView];
 }
 
 -(void)collectionViewSetup{
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, 100);
+    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, 60);
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
 
@@ -50,6 +49,8 @@
     self.collectionView.bounces = YES;
     self.collectionView.alwaysBounceVertical = YES;
     self.collectionView.dataSource = self;
+    [self.view addSubview:self.collectionView];
+    [self.collectionView setHidden:YES];
 }
 
 -(void)registerNib{
@@ -106,7 +107,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.frame = CGRectMake(0, 0 + indexPath.row*100, self.view.frame.size.width, 100);
+    cell.frame = CGRectMake(0, 0 + indexPath.row*60, self.view.frame.size.width, 60);
     cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
     return cell;
 }
@@ -130,6 +131,8 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     NSLog(@"%@",searchText);
+    [self.collectionView setHidden:YES];
+    [self.activity startAnimating];
     GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
     filter.type = kGMSPlacesAutocompleteTypeFilterRegion;
     
@@ -148,6 +151,7 @@
 //                                administrative_area_level_1
 //                                administrative_area_level_2
                                 [self.activity stopAnimating];
+                                [self.collectionView setHidden:NO];
                                 for (GMSAutocompletePrediction* result in results) {
                                     for(NSString *val in result.types){
                                         if ([val isEqualToString:@"locality"]) {
