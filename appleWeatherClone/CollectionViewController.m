@@ -30,6 +30,8 @@
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     [self registrNib];
 
     
@@ -93,7 +95,6 @@
         cell.delegate = self;
 //        cell.frame.size.width =  self.view.frame.size.width;
         cell.bounds = CGRectMake(0, 0, self.view.frame.size.width, 200);
-        cell.contentView.backgroundColor = [UIColor grayColor];
         return cell;
         
     }

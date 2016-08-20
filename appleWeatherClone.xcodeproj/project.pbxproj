@@ -141,15 +141,15 @@
 				6300D9A61D659F26006A64D8 /* CollectionViewController.h */,
 				6300D9A71D659F26006A64D8 /* CollectionViewController.m */,
 				6300D9A81D659F26006A64D8 /* CollectionViewController.xib */,
+				630BFBF01D67FEF200B5FE73 /* WeatherBottomViewCell1.h */,
+				630BFBF11D67FEF200B5FE73 /* WeatherBottomViewCell1.m */,
+				630BFBF21D67FEF200B5FE73 /* WeatherBottomViewCell1.xib */,
 				63389BD51D65E55B00179D93 /* SearchViewController.h */,
 				63389BD61D65E55B00179D93 /* SearchViewController.m */,
 				63389BD71D65E55B00179D93 /* SearchViewController.xib */,
 				630BFBEB1D66731700B5FE73 /* CurrentViewController.h */,
 				630BFBEC1D66731700B5FE73 /* CurrentViewController.m */,
 				630BFBED1D66731700B5FE73 /* CurrentViewController.xib */,
-				630BFBF01D67FEF200B5FE73 /* WeatherBottomViewCell1.h */,
-				630BFBF11D67FEF200B5FE73 /* WeatherBottomViewCell1.m */,
-				630BFBF21D67FEF200B5FE73 /* WeatherBottomViewCell1.xib */,
 			);
 			path = appleWeatherClone;
 			sourceTree = "<group>";
