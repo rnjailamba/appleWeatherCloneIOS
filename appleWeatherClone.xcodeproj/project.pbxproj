@@ -35,6 +35,9 @@
 		63389BCF1D65C40700179D93 /* sunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BCB1D65C40700179D93 /* sunny.jpg */; };
 		63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63389BD61D65E55B00179D93 /* SearchViewController.m */; };
 		63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63389BD71D65E55B00179D93 /* SearchViewController.xib */; };
+		63D759251D68665E00C9B977 /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759241D68665E00C9B977 /* dots.png */; };
+		63D759271D68676200C9B977 /* rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759261D68676200C9B977 /* rec.png */; };
+		63D7592B1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		63389BD51D65E55B00179D93 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		63389BD61D65E55B00179D93 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		63389BD71D65E55B00179D93 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		63D759241D68665E00C9B977 /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dots.png; sourceTree = "<group>"; };
+		63D759261D68676200C9B977 /* rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec.png; sourceTree = "<group>"; };
+		63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-symbol-of-three-items-with-dots.png"; sourceTree = "<group>"; };
 		82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,8 +171,11 @@
 		6300D98B1D6424B6006A64D8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				63D759261D68676200C9B977 /* rec.png */,
+				63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */,
 				6300D9B21D65A269006A64D8 /* farenheit.png */,
 				6300D9B61D65A31D006A64D8 /* thermometer.png */,
+				63D759241D68665E00C9B977 /* dots.png */,
 				6300D9B31D65A269006A64D8 /* celsius.png */,
 				6300D9B01D65A1AE006A64D8 /* plus.png */,
 				6300D99F1D659D34006A64D8 /* stacked.png */,
@@ -250,6 +259,7 @@
 				63389BCE1D65C40700179D93 /* rainy.jpg in Resources */,
 				6300D9991D657480006A64D8 /* PageViewController.xib in Resources */,
 				63389BCD1D65C40700179D93 /* cold-compressed.jpg in Resources */,
+				63D759271D68676200C9B977 /* rec.png in Resources */,
 				630BFBF41D67FEF200B5FE73 /* WeatherBottomViewCell1.xib in Resources */,
 				63389BCF1D65C40700179D93 /* sunny.jpg in Resources */,
 				6300D9B51D65A269006A64D8 /* celsius.png in Resources */,
@@ -258,8 +268,10 @@
 				63389BCC1D65C40700179D93 /* clear-compressed.jpg in Resources */,
 				630BFBEF1D66731700B5FE73 /* CurrentViewController.xib in Resources */,
 				6300D9AA1D659F26006A64D8 /* CollectionViewController.xib in Resources */,
+				63D759251D68665E00C9B977 /* dots.png in Resources */,
 				6300D9B41D65A269006A64D8 /* farenheit.png in Resources */,
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
+				63D7592B1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png in Resources */,
 				6300D9801D62D0EC006A64D8 /* Default-568h@2x.png in Resources */,
 				6300D9B71D65A31D006A64D8 /* thermometer.png in Resources */,
 				63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */,

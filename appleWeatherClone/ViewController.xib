@@ -26,36 +26,40 @@
                         <action selector="startAppleWeatherApp:" destination="-1" eventType="touchUpInside" id="7RD-aE-LiM"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stacked.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
-                    <rect key="frame" x="280" y="528" width="32" height="32"/>
-                    <animations/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrZ-7f-K66">
-                    <rect key="frame" x="280" y="528" width="40" height="40"/>
+                    <rect key="frame" x="272" y="528" width="40" height="40"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="K5d-8N-9dK"/>
-                        <constraint firstAttribute="width" constant="40" id="sAk-Re-KEK"/>
+                        <constraint firstAttribute="height" constant="40" id="xqU-c0-0sW"/>
                     </constraints>
                     <connections>
                         <action selector="stackClicked:" destination="-1" eventType="touchUpInside" id="u8X-tW-POT"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list-symbol-of-three-items-with-dots.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
+                    <rect key="frame" x="272" y="525" width="40" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="KIG-AP-Mas"/>
+                        <constraint firstAttribute="height" constant="40" id="jp3-N9-Gk8"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="KrZ-7f-K66" secondAttribute="bottom" id="Qn4-zM-abB"/>
-                <constraint firstAttribute="trailing" secondItem="NUr-ow-FaS" secondAttribute="trailing" constant="8" id="Tb6-AZ-biM"/>
-                <constraint firstAttribute="bottom" secondItem="NUr-ow-FaS" secondAttribute="bottom" constant="8" id="h2b-MQ-fcZ"/>
-                <constraint firstAttribute="bottom" secondItem="FE4-Fi-ztx" secondAttribute="bottom" constant="8" id="otv-Hp-cAJ"/>
-                <constraint firstAttribute="trailing" secondItem="KrZ-7f-K66" secondAttribute="trailing" id="r0x-Qe-FGb"/>
-                <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerX" secondItem="b5Z-NY-Tfh" secondAttribute="centerX" id="zQz-OW-mpD"/>
+                <constraint firstItem="KrZ-7f-K66" firstAttribute="leading" secondItem="NUr-ow-FaS" secondAttribute="leading" id="2qx-x8-3La"/>
+                <constraint firstItem="KrZ-7f-K66" firstAttribute="trailing" secondItem="NUr-ow-FaS" secondAttribute="trailing" id="Ecr-ck-uc4"/>
+                <constraint firstAttribute="bottom" secondItem="NUr-ow-FaS" secondAttribute="bottom" constant="3" id="QFP-1r-Idr"/>
+                <constraint firstAttribute="bottom" secondItem="KrZ-7f-K66" secondAttribute="bottom" id="fDS-aO-BKm"/>
+                <constraint firstAttribute="trailing" secondItem="NUr-ow-FaS" secondAttribute="trailing" constant="8" id="m1F-ws-3W9"/>
+                <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerY" secondItem="NUr-ow-FaS" secondAttribute="centerY" id="nfP-la-fbW"/>
+                <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerX" secondItem="b5Z-NY-Tfh" secondAttribute="centerX" id="uBs-Qb-1Xs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="stacked.png" width="32" height="32"/>
+        <image name="list-symbol-of-three-items-with-dots.png" width="64" height="64"/>
     </resources>
 </document>
