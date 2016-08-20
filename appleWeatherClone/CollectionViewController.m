@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *collectionView;
 @property (strong, nonatomic) NSMutableArray *pageTitles;
 @property (strong, nonatomic) NSMutableArray *pageImages;
+@property (strong, nonatomic) NSMutableArray *tempratures;
+
 @end
 
 @implementation CollectionViewController
@@ -30,6 +32,7 @@
     self.view.frame = [[UIScreen mainScreen]bounds];
     _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
+    self.tempratures = [NSMutableArray new];
     [self tableViewSetup];
     [self registrNib];
 }
@@ -229,32 +232,46 @@
         [cell.contentView addSubview:timelabel];
         
         //    http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
-        NSDictionary *parameters = @{@"q":label.text,
-                                     @"APPID":open_weather_api_key,
-                                     @"units":@"metric"};
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
-        [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
-            id obj = [responseObject objectForKey:@"main"];
-            NSString *temp = [obj objectForKey:@"temp"];
-//            NSLog(@"object: %@", responseObject);
-            NSLog(@"temp: %@", temp);
-            NSInteger tempInt = [temp intValue];
+        
+        
+        if([self.tempratures count] <= indexPath.row){
+            NSDictionary *parameters = @{@"q":label.text,
+                                         @"APPID":open_weather_api_key,
+                                         @"units":@"metric"};
+            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
             
-            NSLog(@"tempInt: %ld", (long)tempInt);
-            dispatch_async(dispatch_get_main_queue(), ^(){
-                UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
-                tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt] ;
-                [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
-                tempLabel.textColor = [UIColor whiteColor];
-                [cell.contentView addSubview:tempLabel];                
-            });
+            [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
+                id obj = [responseObject objectForKey:@"main"];
+                NSString *temp = [obj objectForKey:@"temp"];
+                NSLog(@"object: %@", responseObject);
+                NSLog(@"temp: %@", temp);
+                NSInteger tempInt = [temp intValue];
+                
+                NSLog(@"tempInt: %ld", (long)tempInt);
+                dispatch_async(dispatch_get_main_queue(), ^(){
+                    UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+                    tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt] ;
+                    [self.tempratures addObject:tempLabel.text];
+                    [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+                    tempLabel.textColor = [UIColor whiteColor];
+                    [cell.contentView addSubview:tempLabel];
+                });
+//
+            } failure:^(NSURLSessionTask *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+
+        }
+        else{
+            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+            tempLabel.text = [self.tempratures objectAtIndex:indexPath.row];
+            [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+            tempLabel.textColor = [UIColor whiteColor];
+            [cell.contentView addSubview:tempLabel];
 
 
-            
-        } failure:^(NSURLSessionTask *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
+        }
         
 //
 //        UIImageView *imageView =[UIImageView new];
