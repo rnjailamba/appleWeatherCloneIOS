@@ -111,9 +111,7 @@
         for (UIView* subview in subviews) {
             [subview removeFromSuperview];
         }
-        cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
-        cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
-        
+        cell.backgroundColor = [self randomNiceColor];        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 40)];
         label.text = [[self.pageTitles objectAtIndex:indexPath.row] objectForKey:@"name"];
         [label setFont:[UIFont  systemFontOfSize:28 weight:UIFontWeightMedium]];
@@ -188,6 +186,19 @@
 -(void)currentLocationClicked:(id)sender{
     CurrentViewController *currentVC = [[CurrentViewController alloc]initWithNibName:@"CurrentViewController" bundle:nil];
     [self presentViewController:currentVC animated:YES completion:nil];
+}
+
+- (UIColor *)randomNiceColor
+{
+    CGFloat hue = (arc4random() % 360) / 359.0f;
+    CGFloat saturation = (float)arc4random() / UINT32_MAX;
+    CGFloat brightness = (float)arc4random() / UINT32_MAX;
+    saturation = saturation < 0.5 ? 0.5 : saturation;
+    brightness = brightness < 0.9 ? 0.9 : brightness;
+    return [UIColor colorWithHue:hue
+                      saturation:saturation
+                      brightness:brightness
+                           alpha:0.8];
 }
 
 
