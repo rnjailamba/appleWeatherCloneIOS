@@ -1,4 +1,25 @@
 PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - GoogleMaps (2.0.1):
     - GoogleMaps/Maps (= 2.0.1)
   - GoogleMaps/Base (2.0.1)
@@ -11,15 +32,17 @@ PODS:
     - GoogleMaps/Base (= 2.0.1)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.5)
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
 
 SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GooglePlacePicker: e7b11b732e40dbe76e8ab4c5fc2f4a7c32b96578
   GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
 
-PODFILE CHECKSUM: 6f05fd0f12e833acddfe7a77908672edb0656f8d
+PODFILE CHECKSUM: c4689593b67f4b9a6d7b4fecdc75519d05a38aad
 
 COCOAPODS: 1.0.1

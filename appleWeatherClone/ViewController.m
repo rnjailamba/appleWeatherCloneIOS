@@ -36,12 +36,7 @@
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
-        NSMutableArray *mutableArray = [[NSMutableArray alloc]init];
-        for(NSString *val in @[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]){
-            NSMutableDictionary *dict = [NSMutableDictionary new];
-            [dict setObject:val forKey:@"name"];
-            [mutableArray addObject:dict];
-        }
+        NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:@[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -138,7 +133,7 @@
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [[PageContentViewController alloc]initWithNibName:@"PageContentViewController" bundle:nil];
     pageContentViewController.imageFile = self.pageImages[index%[self.pageImages count]];
-    pageContentViewController.titleText = [[self.pageTitles objectAtIndex:index] objectForKey:@"name"];
+    pageContentViewController.titleText = [self.pageTitles objectAtIndex:index];
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
 }

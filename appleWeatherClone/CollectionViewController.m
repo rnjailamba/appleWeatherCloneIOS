@@ -11,7 +11,9 @@
 #import "ViewController.h"
 #import "SearchViewController.h"
 #import "CurrentViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
+#define open_weather_api_key @"1255ba5f70cf5adf3bd2ba9aaa7dd1dc"
 
 @interface CollectionViewController ()<UITableViewDataSource,UITableViewDelegate,WeatherBottomViewCell1Delegate>
 
@@ -30,9 +32,21 @@
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     [self tableViewSetup];
     [self registrNib];
-
+//    http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
+    NSDictionary *parameters = @{@"q":@"Delhi",
+                                 @"APPID":open_weather_api_key,
+                                 @"units":@"metric"};
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    // Do any additional setup after loading the view from its nib.
+    [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"object: %@", responseObject);
+
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+
 }
 
 -(void)tableViewSetup{
