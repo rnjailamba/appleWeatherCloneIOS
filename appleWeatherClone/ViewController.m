@@ -32,7 +32,7 @@
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    _pageImages = @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"];
+    _pageImages = @[ @"sunny.jpg", @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg",@"sun3.jpg",@"sun4.jpg"];
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
@@ -137,7 +137,7 @@
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [[PageContentViewController alloc]initWithNibName:@"PageContentViewController" bundle:nil];
-    pageContentViewController.imageFile = self.pageImages[index%4];
+    pageContentViewController.imageFile = self.pageImages[index%[self.pageImages count]];
     pageContentViewController.titleText = [[self.pageTitles objectAtIndex:index] objectForKey:@"name"];
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
