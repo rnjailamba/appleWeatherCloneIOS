@@ -31,7 +31,8 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    self.collectionView.allowsMultipleSelectionDuringEditing = NO;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self registrNib];
 
     
@@ -80,13 +81,10 @@
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.pageTitles count] + 1;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -130,8 +128,6 @@
     
 }
 
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -142,7 +138,6 @@
         return 80;
     }
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -155,27 +150,19 @@
     else{
         
     }
-    
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
-
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView
-//                  layout:(UICollectionViewLayout*)collectionViewLayout
-//  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    if(indexPath.row == [self.pageTitles count]){
-//        return CGSizeMake(self.view.frame.size.width, 200);
-//    }
-//    else{
-//        return CGSizeMake(self.view.frame.size.width, 80);
-//    }
-//}
-
-//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_pageTitles removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
 
 #pragma WeatherBottomViewCellDelegate
 
