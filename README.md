@@ -28,4 +28,5 @@ http://stackoverflow.com/questions/16069357/uicollectionview-does-not-scroll
 
 ##Open Weather API  
 http://openweathermap.org/appid   
-http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc
+http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc  
+http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
