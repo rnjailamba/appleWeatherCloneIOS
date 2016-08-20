@@ -32,7 +32,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.collectionView.allowsMultipleSelectionDuringEditing = NO;
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.collectionView.allowsSelection = NO;
     [self registrNib];
 
     
@@ -122,7 +122,6 @@
         [degreeLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
         degreeLabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:degreeLabel];
-        
         return cell;
     }
     
