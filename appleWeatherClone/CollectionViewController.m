@@ -40,29 +40,36 @@
 }
 
 - (void)cacheUpdated:(NSNotification *)notification {
-   
-    NSString *location = notification.object;
-    [self.pageTitles addObject:location];
-    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
-    BOOL found = NO;
-    for(NSDictionary *val in mutableArray){
-        if([[val objectForKey:@"name"] isEqualToString: location]){
-            found = YES;
-            break;
-        }
-    }
-    if(found == NO){
-        NSMutableDictionary *dict = [NSMutableDictionary new];
-        [dict setObject:location forKey:@"name"];
-        [mutableArray addObject:dict];
-        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
-        [self.collectionView reloadData];
+//    NSString *location = notification.object;
+//    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+//    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+//    BOOL found = NO;
+//    for(NSDictionary *val in mutableArray){
+//        if([[val objectForKey:@"name"] isEqualToString: location]){
+//            found = YES;
+//            break;
+//        }
+//    }
+//    if(found == NO){
+//        NSMutableDictionary *dict = [NSMutableDictionary new];
+//        [dict setObject:location forKey:@"name"];
+//        [mutableArray addObject:dict];
+//        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//        _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+//
+//
+//    }
+    [self performSelectorOnMainThread:@selector(refreshTableView) withObject:nil waitUntilDone:NO];
 
-    }
     NSLog(@"notification recieved %@",notification.object);
 
+}
+
+
+-(void)refreshTableView{
+    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    [self.collectionView reloadData];
 }
 
 -(void)registrNib{
@@ -93,7 +100,8 @@
         WeatherBottomViewCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherBottomViewCell1" forIndexPath:indexPath];
         cell.delegate = self;
 //        cell.frame.size.width =  self.view.frame.size.width;
-        cell.bounds = CGRectMake(0, 0, self.view.frame.size.width, 200);
+//        cell.bounds = CGRectMake(0, 0, self.view.frame.size.width, 200);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }
@@ -123,6 +131,7 @@
         [degreeLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
         degreeLabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:degreeLabel];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

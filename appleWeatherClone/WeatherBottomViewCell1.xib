@@ -50,6 +50,7 @@
                     </button>
                 </subviews>
                 <animations/>
+                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="YBJ-7L-ZRe" firstAttribute="centerX" secondItem="le5-JX-6IB" secondAttribute="centerX" id="9Xh-Sc-3r8"/>
                     <constraint firstItem="HqV-iR-pQe" firstAttribute="leading" secondItem="le5-JX-6IB" secondAttribute="leadingMargin" id="DtS-ba-LmN"/>

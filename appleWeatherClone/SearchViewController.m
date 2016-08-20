@@ -127,6 +127,24 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected %ld",(long)indexPath.row);
     NSLog(@"selected %@",[self.results objectAtIndex:indexPath.row]);
+    NSString *location = [self.results objectAtIndex:indexPath.row];
+
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    BOOL found = NO;
+    for(NSDictionary *val in mutableArray){
+        if([[val objectForKey:@"name"] isEqualToString: location]){
+            found = YES;
+            break;
+        }
+    }
+    if(found == NO){
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        [dict setObject:location forKey:@"name"];
+        [mutableArray addObject:dict];
+        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"placeNotification" object:[self.results objectAtIndex:indexPath.row]];
     [self handleViewDismissal];
 }

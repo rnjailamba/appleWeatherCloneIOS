@@ -46,7 +46,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
 
     }
-    _pageTitles = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     
     // Create page view controller
     self.pageViewController =  [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
