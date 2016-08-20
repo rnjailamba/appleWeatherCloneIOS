@@ -32,21 +32,6 @@
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     [self tableViewSetup];
     [self registrNib];
-//    http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
-    NSDictionary *parameters = @{@"q":@"Delhi",
-                                 @"APPID":open_weather_api_key,
-                                 @"units":@"metric"};
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"object: %@", responseObject);
-
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-
-
 }
 
 -(void)tableViewSetup{
@@ -243,12 +228,37 @@
         timelabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:timelabel];
         
-        UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
-        tempLabel.text = @"23";
-        [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
-        tempLabel.textColor = [UIColor whiteColor];
-        [cell.contentView addSubview:tempLabel];
-//        
+        //    http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
+        NSDictionary *parameters = @{@"q":label.text,
+                                     @"APPID":open_weather_api_key,
+                                     @"units":@"metric"};
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
+            id obj = [responseObject objectForKey:@"main"];
+            NSString *temp = [obj objectForKey:@"temp"];
+            NSLog(@"object: %@", responseObject);
+            NSLog(@"temp: %@", temp);
+            NSInteger tempInt = [temp intValue];
+            
+            NSLog(@"tempInt: %ld", (long)tempInt);
+            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+            tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt] ;
+            [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+            tempLabel.textColor = [UIColor whiteColor];
+            [cell.contentView addSubview:tempLabel];
+
+            
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+        
+//        UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+//        tempLabel.text = @"23";
+//        [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+//        tempLabel.textColor = [UIColor whiteColor];
+//        [cell.contentView addSubview:tempLabel];
+//
 //        UIImageView *imageView =[UIImageView new];
 //        imageView.image = [UIImage imageNamed:@"dots-clear.png"];
 //        imageView.frame = CGRectMake(self.view.frame.size.width-34, 30, 16, 16);
