@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yourCurrentLocationLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
+- (IBAction)refreshClicked:(id)sender;
 
 @end
 
@@ -119,8 +120,7 @@
 }
 
 
-
-
-
-
+- (IBAction)refreshClicked:(id)sender {
+    [self viewDidLoad];
+}
 @end

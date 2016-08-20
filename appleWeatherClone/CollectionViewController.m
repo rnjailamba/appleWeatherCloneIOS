@@ -7,15 +7,15 @@
 //
 
 #import "CollectionViewController.h"
-#import "WeatherBottomViewCell.h"
+#import "WeatherBottomViewCell1.h"
 #import "ViewController.h"
 #import "SearchViewController.h"
 #import "CurrentViewController.h"
 
 
-@interface CollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,WeatherBottomViewCellDelegate>
+@interface CollectionViewController ()<UITableViewDataSource,UITableViewDelegate,WeatherBottomViewCell1Delegate>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITableView *collectionView;
 @property (strong, nonatomic) NSMutableArray *pageTitles;
 @property (strong, nonatomic) NSMutableArray *pageImages;
 @end
@@ -25,12 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"placeNotification" object:nil];
-    [self registrNib];
     self.view.frame = [[UIScreen mainScreen]bounds];
     _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [self registrNib];
 
     
     // Do any additional setup after loading the view from its nib.
@@ -62,8 +62,8 @@
 }
 
 -(void)registrNib{
-    [self.collectionView registerNib:[UINib nibWithNibName:@"WeatherBottomViewCell" bundle:nil] forCellWithReuseIdentifier:@"WeatherBottomViewCell"];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"random"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"WeatherBottomViewCell1" bundle:nil] forCellReuseIdentifier:@"WeatherBottomViewCell1"];
+    [self.collectionView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"random"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,25 +72,33 @@
 }
 
 #pragma UICollectionViewDelegate
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.pageTitles count] + 1;
 }
 
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if(indexPath.row == [self.pageTitles count]){
-        WeatherBottomViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"WeatherBottomViewCell" forIndexPath:indexPath];
+        WeatherBottomViewCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherBottomViewCell1" forIndexPath:indexPath];
         cell.delegate = self;
+//        cell.frame.size.width =  self.view.frame.size.width;
+        cell.bounds = CGRectMake(0, 0, self.view.frame.size.width, 200);
+        cell.contentView.backgroundColor = [UIColor grayColor];
         return cell;
         
     }
     else{
-        UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"random" forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"random" forIndexPath:indexPath];
         NSArray* subviews = [cell.contentView subviews];
         for (UIView* subview in subviews) {
             [subview removeFromSuperview];
@@ -118,22 +126,25 @@
         
         return cell;
     }
-
+    
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout*)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
     if(indexPath.row == [self.pageTitles count]){
-        return CGSizeMake(self.view.frame.size.width, 200);
+        return 200;
     }
     else{
-        return CGSizeMake(self.view.frame.size.width, 80);
+        return 80;
     }
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if(indexPath.row < [self.pageTitles count]){
         NSLog(@"didselect%ld",(long)indexPath.row);
         ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
@@ -143,8 +154,27 @@
     else{
         
     }
-   
+    
 }
+
+
+
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView
+//                  layout:(UICollectionViewLayout*)collectionViewLayout
+//  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    if(indexPath.row == [self.pageTitles count]){
+//        return CGSizeMake(self.view.frame.size.width, 200);
+//    }
+//    else{
+//        return CGSizeMake(self.view.frame.size.width, 80);
+//    }
+//}
+
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
 
 #pragma WeatherBottomViewCellDelegate
 

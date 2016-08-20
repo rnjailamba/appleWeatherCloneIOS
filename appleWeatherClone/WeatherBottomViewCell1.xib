@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherBottomViewCell1"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="z05-r4-1wL" customClass="WeatherBottomViewCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z05-r4-1wL" id="le5-JX-6IB">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farenheit.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-BS-e9S">
+                        <rect key="frame" x="48" y="8" width="32" height="32"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Jz-3G-QIA">
+                        <rect key="frame" x="128" y="121" width="64" height="64"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celsius.png" translatesAutoresizingMaskIntoConstraints="NO" id="HqV-iR-pQe">
+                        <rect key="frame" x="8" y="8" width="32" height="32"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qh-g1-3pU">
+                        <rect key="frame" x="280" y="8" width="32" height="32"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBJ-7L-ZRe">
+                        <rect key="frame" x="75" y="83" width="171" height="30"/>
+                        <animations/>
+                        <state key="normal" title="Get your current location">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="currentLocationClicked:" destination="-1" eventType="touchUpInside" id="tVE-nP-OQF"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY2-Oi-ui2">
+                        <rect key="frame" x="282" y="10" width="30" height="30"/>
+                        <animations/>
+                        <connections>
+                            <action selector="plusClicked:" destination="-1" eventType="touchUpInside" id="Y4M-mb-eIW"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="YBJ-7L-ZRe" firstAttribute="centerX" secondItem="le5-JX-6IB" secondAttribute="centerX" id="9Xh-Sc-3r8"/>
+                    <constraint firstItem="HqV-iR-pQe" firstAttribute="leading" secondItem="le5-JX-6IB" secondAttribute="leadingMargin" id="DtS-ba-LmN"/>
+                    <constraint firstItem="YBJ-7L-ZRe" firstAttribute="top" secondItem="1Hj-BS-e9S" secondAttribute="bottom" constant="43" id="Kio-G0-Qpz"/>
+                    <constraint firstItem="YBJ-7L-ZRe" firstAttribute="centerX" secondItem="1Jz-3G-QIA" secondAttribute="centerX" id="Kv1-Lc-Z43"/>
+                    <constraint firstItem="1Jz-3G-QIA" firstAttribute="top" secondItem="YBJ-7L-ZRe" secondAttribute="bottom" constant="8" symbolic="YES" id="Lsi-C6-9bS"/>
+                    <constraint firstItem="1Hj-BS-e9S" firstAttribute="leading" secondItem="HqV-iR-pQe" secondAttribute="trailing" constant="8" symbolic="YES" id="M0E-iG-fSM"/>
+                    <constraint firstItem="HqV-iR-pQe" firstAttribute="top" secondItem="1Hj-BS-e9S" secondAttribute="top" id="TeR-dK-ggv"/>
+                    <constraint firstItem="2Qh-g1-3pU" firstAttribute="top" secondItem="le5-JX-6IB" secondAttribute="topMargin" id="bpW-69-noG"/>
+                    <constraint firstItem="2Qh-g1-3pU" firstAttribute="bottom" secondItem="iY2-Oi-ui2" secondAttribute="bottom" id="jNw-lx-RVX"/>
+                    <constraint firstItem="2Qh-g1-3pU" firstAttribute="top" secondItem="1Hj-BS-e9S" secondAttribute="top" id="q2b-8f-7jI"/>
+                    <constraint firstItem="2Qh-g1-3pU" firstAttribute="trailing" secondItem="iY2-Oi-ui2" secondAttribute="trailing" id="tz1-go-OhZ"/>
+                    <constraint firstItem="2Qh-g1-3pU" firstAttribute="trailing" secondItem="le5-JX-6IB" secondAttribute="trailingMargin" id="yRZ-gW-rbf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="celsius.png" width="32" height="32"/>
+        <image name="farenheit.png" width="32" height="32"/>
+        <image name="plus.png" width="32" height="32"/>
+        <image name="thermometer.png" width="64" height="64"/>
+    </resources>
+</document>

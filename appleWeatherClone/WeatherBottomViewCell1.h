@@ -1,14 +1,14 @@
 //
-//  WeatherBottomViewCell.h
+//  WeatherBottomViewCell1.h
 //  appleWeatherClone
 //
-//  Created by Mr Ruby on 18/08/16.
+//  Created by Mr Ruby on 20/08/16.
 //  Copyright © 2016 Rnjai Lamba. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@protocol WeatherBottomViewCellDelegate <NSObject>
+@protocol WeatherBottomViewCell1Delegate <NSObject>
 
 @required
 
@@ -17,10 +17,10 @@
 
 @end
 
-@interface WeatherBottomViewCell : UICollectionViewCell
+@interface WeatherBottomViewCell1 : UITableViewCell
 
 - (IBAction)plusClicked:(id)sender;
-@property id<WeatherBottomViewCellDelegate> delegate;
+@property id<WeatherBottomViewCell1Delegate> delegate;
 - (IBAction)currentLocationClicked:(id)sender;
 
 @end

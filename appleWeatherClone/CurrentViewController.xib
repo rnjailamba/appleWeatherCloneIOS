@@ -18,27 +18,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current Location Is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-0T-pk3">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Current Location Is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-0T-pk3">
                     <rect key="frame" x="35" y="76" width="250" height="73"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="73" id="zKh-4x-zid"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-Bq-0dP">
-                    <rect key="frame" x="150" y="274" width="20" height="20"/>
-                    <animations/>
-                </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LQ-uc-Nvz">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LQ-uc-Nvz">
                     <rect key="frame" x="112" y="468" width="97" height="30"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="97" id="eSw-He-fLo"/>
-                        <constraint firstAttribute="height" constant="30" id="xev-1b-UwY"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                     <state key="normal" title="Back">
                         <color key="titleColor" red="0.87003236920000004" green="0.75703724819999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,18 +36,24 @@
                         <action selector="backClicked:" destination="-1" eventType="touchUpInside" id="OVx-ER-IUL"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-Bq-0dP">
+                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                    <animations/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5S-df-3ia">
+                    <rect key="frame" x="112" y="383" width="97" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" red="0.26588585882383131" green="0.99689149483104467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshClicked:" destination="-1" eventType="touchUpInside" id="HIB-yw-SKy"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="ebJ-Bq-0dP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ALD-6F-qPd"/>
-                <constraint firstItem="Aid-0T-pk3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="76" id="Jnh-gC-AvO"/>
-                <constraint firstItem="Aid-0T-pk3" firstAttribute="centerX" secondItem="ebJ-Bq-0dP" secondAttribute="centerX" id="Ozc-ty-Cwb"/>
-                <constraint firstItem="ebJ-Bq-0dP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RBb-1U-NNo"/>
-                <constraint firstItem="Aid-0T-pk3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="mWD-YD-Rf1"/>
-                <constraint firstItem="7LQ-uc-Nvz" firstAttribute="centerX" secondItem="ebJ-Bq-0dP" secondAttribute="centerX" id="o2Q-gl-kRH"/>
-                <constraint firstAttribute="bottom" secondItem="7LQ-uc-Nvz" secondAttribute="bottom" constant="70" id="teB-6X-gOl"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

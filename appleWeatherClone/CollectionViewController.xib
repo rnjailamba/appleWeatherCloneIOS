@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionViewController">
             <connections>
-                <outlet property="collectionView" destination="dCE-IK-EnD" id="mkb-tv-IZ8"/>
+                <outlet property="collectionView" destination="XSK-q6-wg3" id="cg4-9H-g0N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,25 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-IK-EnD">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XSK-q6-wg3">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lnx-ca-wCt">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="dCE-IK-EnD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="a0E-b8-HiV"/>
-                <constraint firstAttribute="bottom" secondItem="dCE-IK-EnD" secondAttribute="bottom" id="jIU-rp-f43"/>
-                <constraint firstAttribute="trailing" secondItem="dCE-IK-EnD" secondAttribute="trailing" id="wcq-hx-fxq"/>
-                <constraint firstItem="dCE-IK-EnD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="whU-mK-9ye"/>
+                <constraint firstAttribute="trailing" secondItem="XSK-q6-wg3" secondAttribute="trailing" id="2eR-yp-JUj"/>
+                <constraint firstAttribute="bottom" secondItem="XSK-q6-wg3" secondAttribute="bottom" id="OXz-O3-aKS"/>
+                <constraint firstItem="XSK-q6-wg3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OmA-ne-YZW"/>
+                <constraint firstItem="XSK-q6-wg3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bn1-dN-cM3"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
