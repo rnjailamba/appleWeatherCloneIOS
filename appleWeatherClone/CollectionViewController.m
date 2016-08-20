@@ -32,7 +32,7 @@
     self.collectionView.dataSource = self;
     self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.collectionView.allowsMultipleSelectionDuringEditing = NO;
-    self.collectionView.allowsSelection = NO;
+//    self.collectionView.allowsSelection = NO;
     [self registrNib];
 
     
@@ -56,11 +56,12 @@
         [dict setObject:location forKey:@"name"];
         [mutableArray addObject:dict];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
         [self.collectionView reloadData];
 
     }
-       NSLog(@"notification recieved %@",notification.object);
+    NSLog(@"notification recieved %@",notification.object);
 
 }
 
@@ -155,11 +156,16 @@
     return YES;
 }
 
-// Override to support editing the table view.
+// Override to support deleting cell of the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_pageTitles removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+        [mutableArray removeObjectAtIndex:indexPath.row];
+        [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     }
 }
 
