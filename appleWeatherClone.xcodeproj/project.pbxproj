@@ -38,6 +38,8 @@
 		63D759251D68665E00C9B977 /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759241D68665E00C9B977 /* dots.png */; };
 		63D759271D68676200C9B977 /* rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759261D68676200C9B977 /* rec.png */; };
 		63D7592B1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */; };
+		63D7592D1D686CDC00C9B977 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592C1D686CDC00C9B977 /* dot.png */; };
+		63D7592F1D686E8300C9B977 /* dots-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592E1D686E8300C9B977 /* dots-clear.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		63D759241D68665E00C9B977 /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dots.png; sourceTree = "<group>"; };
 		63D759261D68676200C9B977 /* rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec.png; sourceTree = "<group>"; };
 		63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-symbol-of-three-items-with-dots.png"; sourceTree = "<group>"; };
+		63D7592C1D686CDC00C9B977 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.png; sourceTree = "<group>"; };
+		63D7592E1D686E8300C9B977 /* dots-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dots-clear.png"; sourceTree = "<group>"; };
 		82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.debug.xcconfig"; sourceTree = "<group>"; };
 		C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleWeatherClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appleWeatherClone/Pods-appleWeatherClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +177,7 @@
 			children = (
 				63D759261D68676200C9B977 /* rec.png */,
 				63D7592A1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png */,
+				63D7592C1D686CDC00C9B977 /* dot.png */,
 				6300D9B21D65A269006A64D8 /* farenheit.png */,
 				6300D9B61D65A31D006A64D8 /* thermometer.png */,
 				63D759241D68665E00C9B977 /* dots.png */,
@@ -180,6 +185,7 @@
 				6300D9B01D65A1AE006A64D8 /* plus.png */,
 				6300D99F1D659D34006A64D8 /* stacked.png */,
 				63389BC81D65C40700179D93 /* clear-compressed.jpg */,
+				63D7592E1D686E8300C9B977 /* dots-clear.png */,
 				63389BC91D65C40700179D93 /* cold-compressed.jpg */,
 				63389BCA1D65C40700179D93 /* rainy.jpg */,
 				63389BCB1D65C40700179D93 /* sunny.jpg */,
@@ -268,12 +274,14 @@
 				63389BCC1D65C40700179D93 /* clear-compressed.jpg in Resources */,
 				630BFBEF1D66731700B5FE73 /* CurrentViewController.xib in Resources */,
 				6300D9AA1D659F26006A64D8 /* CollectionViewController.xib in Resources */,
+				63D7592D1D686CDC00C9B977 /* dot.png in Resources */,
 				63D759251D68665E00C9B977 /* dots.png in Resources */,
 				6300D9B41D65A269006A64D8 /* farenheit.png in Resources */,
 				6300D9731D62CE15006A64D8 /* Assets.xcassets in Resources */,
 				63D7592B1D6867B100C9B977 /* list-symbol-of-three-items-with-dots.png in Resources */,
 				6300D9801D62D0EC006A64D8 /* Default-568h@2x.png in Resources */,
 				6300D9B71D65A31D006A64D8 /* thermometer.png in Resources */,
+				63D7592F1D686E8300C9B977 /* dots-clear.png in Resources */,
 				63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */,
 				6300D98A1D642147006A64D8 /* PageContentViewController.xib in Resources */,
 			);

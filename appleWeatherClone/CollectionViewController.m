@@ -106,6 +106,7 @@
                 
                 // ... and update source so it is in sync with UI changes.
                 sourceIndexPath = indexPath;
+                [self copyFromPageTitles];
             }
             break;
         }
@@ -155,6 +156,11 @@
     snapshot.layer.shadowOpacity = 0.4;
     
     return snapshot;
+}
+
+-(void)copyFromPageTitles{
+    [[NSUserDefaults standardUserDefaults] setObject:self.pageTitles forKey:@"places"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -223,11 +229,24 @@
         timelabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:timelabel];
         
-        UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
-        degreeLabel.text = @"23*";
-        [degreeLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+        UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+        tempLabel.text = @"23";
+        [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
+        tempLabel.textColor = [UIColor whiteColor];
+        [cell.contentView addSubview:tempLabel];
+//        
+//        UIImageView *imageView =[UIImageView new];
+//        imageView.image = [UIImage imageNamed:@"dots-clear.png"];
+//        imageView.frame = CGRectMake(self.view.frame.size.width-34, 30, 16, 16);
+//        [cell.contentView addSubview:imageView];
+        
+        UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width-36, 20, 24, 24)];
+        degreeLabel.text = @".";
+        [degreeLabel setFont:[UIFont  boldSystemFontOfSize:24 ]];
         degreeLabel.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:degreeLabel];
+        
+        
         return cell;
     }
     
