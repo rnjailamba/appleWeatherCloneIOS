@@ -17,27 +17,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8zc-sh-ewv">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8zc-sh-ewv">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE8-Xs-gOp">
-                    <rect key="frame" x="139" y="37" width="42" height="20.5"/>
+                    <rect key="frame" x="33" y="34" width="254" height="32"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="254" id="EZy-b4-LyZ"/>
+                        <constraint firstAttribute="height" constant="32" id="TpT-vA-Ujc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="JE8-Xs-gOp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="3lc-45-BaJ"/>
-                <constraint firstItem="8zc-sh-ewv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IV4-UE-ots"/>
-                <constraint firstAttribute="bottom" secondItem="8zc-sh-ewv" secondAttribute="bottom" id="WHA-15-0pO"/>
-                <constraint firstItem="8zc-sh-ewv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XIA-3J-5tv"/>
-                <constraint firstAttribute="trailing" secondItem="8zc-sh-ewv" secondAttribute="trailing" id="bfa-zo-9fH"/>
-                <constraint firstItem="JE8-Xs-gOp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nW8-ce-L3T"/>
+                <constraint firstItem="8zc-sh-ewv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3uf-7U-STv"/>
+                <constraint firstItem="JE8-Xs-gOp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="QSl-1L-r1a"/>
+                <constraint firstAttribute="trailing" secondItem="8zc-sh-ewv" secondAttribute="trailing" id="cPk-Am-KIa"/>
+                <constraint firstItem="8zc-sh-ewv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iyw-fb-6xj"/>
+                <constraint firstAttribute="bottom" secondItem="8zc-sh-ewv" secondAttribute="bottom" id="lI5-EI-pmW"/>
+                <constraint firstItem="JE8-Xs-gOp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="lcB-gY-04o"/>
+                <constraint firstAttribute="trailing" secondItem="JE8-Xs-gOp" secondAttribute="trailing" constant="33" id="vQs-CT-L1u"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

@@ -32,7 +32,7 @@
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    _pageImages = @[ @"sunny.jpg", @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg",@"sun3.jpg",@"sun4.jpg"];
+    _pageImages = @[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"];
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];

@@ -36,7 +36,7 @@
                         <action selector="stackClicked:" destination="-1" eventType="touchUpInside" id="u8X-tW-POT"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list-symbol-of-three-items-with-dots.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
                     <rect key="frame" x="272" y="525" width="40" height="40"/>
                     <animations/>
                     <constraints>
@@ -60,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="list-symbol-of-three-items-with-dots.png" width="64" height="64"/>
+        <image name="list.png" width="64" height="64"/>
     </resources>
 </document>
