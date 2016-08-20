@@ -232,7 +232,7 @@
         cell.backgroundColor = [self randomNiceColor];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 40)];
-        label.text = [[self.pageTitles objectAtIndex:indexPath.row] objectForKey:@"name"];
+        label.text = [self.pageTitles objectAtIndex:indexPath.row];
         [label setFont:[UIFont  systemFontOfSize:28 weight:UIFontWeightMedium]];
         label.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];

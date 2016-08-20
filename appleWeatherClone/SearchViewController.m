@@ -131,16 +131,14 @@
 
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     BOOL found = NO;
-    for(NSDictionary *val in mutableArray){
-        if([[val objectForKey:@"name"] isEqualToString: location]){
+    for(NSString *val in mutableArray){
+        if([val isEqualToString: location]){
             found = YES;
             break;
         }
     }
     if(found == NO){
-        NSMutableDictionary *dict = [NSMutableDictionary new];
-        [dict setObject:location forKey:@"name"];
-        [mutableArray addObject:dict];
+        [mutableArray addObject:location];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
