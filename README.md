@@ -2,7 +2,7 @@
 
 version 1 
 http://imgur.com/yElpgXz.gif
-![image](http://imgur.com/qXH8aCA.gif)
+![image](http://imgur.com/9rsjpiq.gif)
   
 http://ezgif.com/optimize   
 https://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/   
