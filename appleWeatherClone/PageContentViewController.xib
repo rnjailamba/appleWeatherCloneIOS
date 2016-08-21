@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="imageView" destination="8zc-sh-ewv" id="leI-Go-nhI"/>
                 <outlet property="label" destination="JE8-Xs-gOp" id="sqe-cK-NQU"/>
+                <outlet property="tempratureLabel" destination="D9X-ip-IZC" id="LNY-HZ-Pc4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherNameLabel" destination="pli-0l-Yxa" id="wI0-2E-6c2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
