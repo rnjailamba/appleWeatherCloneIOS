@@ -18,9 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *weatherNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tempratureLabel;
 
-@property (strong, nonatomic) NSMutableDictionary *tempratures;
-@property (strong, nonatomic) NSMutableDictionary *tempratureNames;
-
 @end
 
 @implementation PageContentViewController
@@ -32,13 +29,7 @@
     self.imageView.image = [UIImage imageNamed:self.imageFile];
     self.label.text = self.titleText;
     self.imageView.clipsToBounds = YES;
-    [self fetchDataFromNSUser];
     [self fetchOtherDataBasedOnPlace:self.titleText];
-}
-
--(void)fetchDataFromNSUser{
-     _tempratures = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"tempratures"]];
-    _tempratureNames = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"tempratureNames"]];
 }
 
 -(void)fetchOtherDataBasedOnPlace:(NSString *)place{

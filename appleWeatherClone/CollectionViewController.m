@@ -19,8 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *collectionView;
 @property (strong, nonatomic) NSMutableArray *places;
-@property (strong, nonatomic) NSMutableArray *pageImages;
-@property (strong, nonatomic) NSMutableArray *tempratures;
 
 @end
 
@@ -31,11 +29,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"placeNotification" object:nil];
     self.view.frame = [[UIScreen mainScreen]bounds];
     _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
-    _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
-    self.tempratures = [[NSMutableArray alloc]initWithCapacity:_places.count];
-    for (int i = 0; i < _places.count; i++) {
-        self.tempratures[i] = @"";
-    }
     [self tableViewSetup];
     [self registrNib];
 }
@@ -228,63 +221,66 @@
         label.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];
         
-        UILabel *timelabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 24, 100, 16)];
-        timelabel.text = @"7:24 PM";
-        [timelabel setFont:[UIFont  systemFontOfSize:12 weight:UIFontWeightMedium]];
-        timelabel.textColor = [UIColor whiteColor];
-        [cell.contentView addSubview:timelabel];
-        
-        //    http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
-        
-        
-        
-        if ( self.tempratures.count < (indexPath.row + 1) || ([[self.tempratures objectAtIndex:indexPath.row]length] == 0)){
-            for (int i = self.tempratures.count; i <= indexPath.row; i++) {
-                self.tempratures[i] = @"";
-            }
+        if([[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",label.text,@"temp"]] == nil ||
+           [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",label.text,@"tempName"]] == nil){
             NSDictionary *parameters = @{@"q":label.text,
                                          @"APPID":open_weather_api_key,
                                          @"units":@"metric"};
             AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
             
             [manager GET:@"http://api.openweathermap.org/data/2.5/weather" parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
+                
+                //Get Temprature
                 id obj = [responseObject objectForKey:@"main"];
                 NSString *temp = [obj objectForKey:@"temp"];
-                NSLog(@"object: %@", responseObject);
-                NSLog(@"temp: %@", temp);
                 NSInteger tempInt = [temp intValue];
                 
+                //Get Temprature name
+                id obj1 = [responseObject objectForKey:@"weather"];
+                NSString *temp1 = [obj1[0] objectForKey:@"main"];
+                
+                //            NSLog(@"object: %@", responseObject);
+                //            NSLog(@"temp: %@", temp);
+                NSLog(@"place: %@", label.text);
+                NSLog(@"tempname: %@", temp1);
                 NSLog(@"tempInt: %ld", (long)tempInt);
                 dispatch_async(dispatch_get_main_queue(), ^(){
+                    UILabel *temperatureNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 24, 100, 16)];
+                    temperatureNameLabel.text = temp1;
+                    [temperatureNameLabel setFont:[UIFont  systemFontOfSize:12 weight:UIFontWeightMedium]];
+                    temperatureNameLabel.textColor = [UIColor whiteColor];
+                    [cell.contentView addSubview:temperatureNameLabel];
+                    
                     UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
-                    tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt] ;
+                    tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt];
+                    
                     [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
                     tempLabel.textColor = [UIColor whiteColor];
                     [cell.contentView addSubview:tempLabel];
                 });
-//                [self.tempratures insertObject: atIndex:indexPath.row];
-                self.tempratures[indexPath.row]= [NSString stringWithFormat:@"%ld",(long)tempInt];
-//
+                [self saveDataToNSUserTempratureName:temp1 temprature:[NSString stringWithFormat:@"%ld",(long)tempInt] forPlace:label.text];
+                
             } failure:^(NSURLSessionTask *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
-
+            
         }
         else{
+            UILabel *temperatureNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 24, 100, 16)];
+            temperatureNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",label.text,@"tempName"]];
+            [temperatureNameLabel setFont:[UIFont  systemFontOfSize:12 weight:UIFontWeightMedium]];
+            temperatureNameLabel.textColor = [UIColor whiteColor];
+            [cell.contentView addSubview:temperatureNameLabel];
+
             UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
-            tempLabel.text = [self.tempratures objectAtIndex:indexPath.row];
+            tempLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",label.text,@"temp"]];
+
             [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
             tempLabel.textColor = [UIColor whiteColor];
             [cell.contentView addSubview:tempLabel];
-
-
+            
+            
         }
-        
-//
-//        UIImageView *imageView =[UIImageView new];
-//        imageView.image = [UIImage imageNamed:@"dots-clear.png"];
-//        imageView.frame = CGRectMake(self.view.frame.size.width-34, 30, 16, 16);
-//        [cell.contentView addSubview:imageView];
         
         UILabel *degreeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width-36, 20, 24, 24)];
         degreeLabel.text = @".";
@@ -295,6 +291,13 @@
         
         return cell;
     }
+    
+}
+
+-(void)saveDataToNSUserTempratureName:(NSString *)tempratureName temprature:(NSString *)temprature forPlace:(NSString *)place{
+    [[NSUserDefaults standardUserDefaults] setObject:tempratureName forKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]];
+    [[NSUserDefaults standardUserDefaults] setObject:temprature forKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
 }
 
@@ -333,7 +336,6 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
         [mutableArray removeObjectAtIndex:indexPath.row];
-        [self.tempratures removeObjectAtIndex:indexPath.row];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
