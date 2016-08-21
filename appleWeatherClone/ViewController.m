@@ -17,8 +17,11 @@
 - (IBAction)startAppleWeatherApp:(id)sender;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSMutableArray *pageTitles;
-@property (strong, nonatomic) NSArray *pageImages;
+
+@property (strong, nonatomic) NSMutableArray *places;
+@property (strong, nonatomic) NSMutableDictionary *tempratures;
+@property (strong, nonatomic) NSArray *placeImages;
+
 @property (nonatomic) NSInteger currentIndex;
 - (IBAction)stackClicked:(id)sender;
 
@@ -32,16 +35,17 @@
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    _pageImages = @[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"];
+    _placeImages = @[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"];
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
-        NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:@[@"Houston",@"Frankfurt",@"Tokyo",@"Indore"]];
+        NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:@[@"Houston",@"Frankfurt",@"Tokyo",@"Hamburg"]];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
 
     }
-    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    _tempratures = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"tempratures"]];
+    _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     
     // Create page view controller
     self.pageViewController =  [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
@@ -116,7 +120,7 @@
     }
     
     index++;
-    if (index == [self.pageTitles count]) {
+    if (index == [self.places count]) {
         return nil;
     }
     return [self viewControllerAtIndex:index];
@@ -124,7 +128,7 @@
 
 - (PageContentViewController *)viewControllerAtIndex:(NSUInteger)index
 {
-    if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
+    if (([self.places count] == 0) || (index >= [self.places count])) {
         return nil;
     }
     self.currentIndex = index;
@@ -132,15 +136,15 @@
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [[PageContentViewController alloc]initWithNibName:@"PageContentViewController" bundle:nil];
-    pageContentViewController.imageFile = self.pageImages[index%[self.pageImages count]];
-    pageContentViewController.titleText = [self.pageTitles objectAtIndex:index];
+    pageContentViewController.imageFile = self.placeImages[index%[self.placeImages count]];
+    pageContentViewController.titleText = [self.places objectAtIndex:index];
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return [self.pageTitles count];
+    return [self.places count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController

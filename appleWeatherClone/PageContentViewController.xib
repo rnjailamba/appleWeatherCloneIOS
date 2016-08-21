@@ -32,17 +32,45 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pli-0l-Yxa">
+                    <rect key="frame" x="33" y="66" width="254" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="254" id="Ofa-CF-Xp5"/>
+                        <constraint firstAttribute="height" constant="21" id="bxN-NK-clK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9X-ip-IZC">
+                    <rect key="frame" x="33" y="89" width="254" height="100"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="254" id="iGy-gL-qem"/>
+                        <constraint firstAttribute="height" constant="100" id="n9w-0s-PxD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="90"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="D9X-ip-IZC" firstAttribute="top" secondItem="pli-0l-Yxa" secondAttribute="bottom" constant="2" id="28W-Ra-uH9"/>
                 <constraint firstItem="8zc-sh-ewv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3uf-7U-STv"/>
+                <constraint firstAttribute="trailing" secondItem="pli-0l-Yxa" secondAttribute="trailing" constant="33" id="Iro-cI-EW5"/>
                 <constraint firstItem="JE8-Xs-gOp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="QSl-1L-r1a"/>
                 <constraint firstAttribute="trailing" secondItem="8zc-sh-ewv" secondAttribute="trailing" id="cPk-Am-KIa"/>
+                <constraint firstItem="pli-0l-Yxa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="cvP-GE-XBv"/>
+                <constraint firstItem="pli-0l-Yxa" firstAttribute="top" secondItem="JE8-Xs-gOp" secondAttribute="bottom" id="ilm-Wt-aHh"/>
                 <constraint firstItem="8zc-sh-ewv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iyw-fb-6xj"/>
                 <constraint firstAttribute="bottom" secondItem="8zc-sh-ewv" secondAttribute="bottom" id="lI5-EI-pmW"/>
                 <constraint firstItem="JE8-Xs-gOp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="lcB-gY-04o"/>
                 <constraint firstAttribute="trailing" secondItem="JE8-Xs-gOp" secondAttribute="trailing" constant="33" id="vQs-CT-L1u"/>
+                <constraint firstItem="D9X-ip-IZC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="xYX-G8-joh"/>
+                <constraint firstAttribute="trailing" secondItem="D9X-ip-IZC" secondAttribute="trailing" constant="33" id="yzb-Zr-OVG"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

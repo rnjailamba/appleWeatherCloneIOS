@@ -18,7 +18,7 @@
 @interface CollectionViewController ()<UITableViewDataSource,UITableViewDelegate,WeatherBottomViewCell1Delegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *collectionView;
-@property (strong, nonatomic) NSMutableArray *pageTitles;
+@property (strong, nonatomic) NSMutableArray *places;
 @property (strong, nonatomic) NSMutableArray *pageImages;
 @property (strong, nonatomic) NSMutableArray *tempratures;
 
@@ -30,10 +30,10 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cacheUpdated:) name:@"placeNotification" object:nil];
     self.view.frame = [[UIScreen mainScreen]bounds];
-    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
-    self.tempratures = [[NSMutableArray alloc]initWithCapacity:_pageTitles.count];
-    for (int i = 0; i < _pageTitles.count; i++) {
+    self.tempratures = [[NSMutableArray alloc]initWithCapacity:_places.count];
+    for (int i = 0; i < _places.count; i++) {
         self.tempratures[i] = @"";
     }
     [self tableViewSetup];
@@ -104,14 +104,14 @@
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
                 
                 // ... update data source.
-                [self.pageTitles exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                [self.places exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
                 
                 // ... move the rows.
                 [self.collectionView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
                 
                 // ... and update source so it is in sync with UI changes.
                 sourceIndexPath = indexPath;
-                [self copyFromPageTitles];
+                [self copyFromplaces];
             }
             break;
         }
@@ -163,8 +163,8 @@
     return snapshot;
 }
 
--(void)copyFromPageTitles{
-    [[NSUserDefaults standardUserDefaults] setObject:self.pageTitles forKey:@"places"];
+-(void)copyFromplaces{
+    [[NSUserDefaults standardUserDefaults] setObject:self.places forKey:@"places"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -176,7 +176,7 @@
 
 
 -(void)refreshTableView{
-    _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     [self.collectionView reloadData];
 }
 
@@ -199,12 +199,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.pageTitles count] + 1;
+    return [self.places count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == [self.pageTitles count]){
+    if(indexPath.row == [self.places count]){
         WeatherBottomViewCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherBottomViewCell1" forIndexPath:indexPath];
         cell.delegate = self;
 //        cell.frame.size.width =  self.view.frame.size.width;
@@ -223,7 +223,7 @@
         cell.backgroundColor = [self randomNiceColor];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 40)];
-        label.text = [self.pageTitles objectAtIndex:indexPath.row];
+        label.text = [self.places objectAtIndex:indexPath.row];
         [label setFont:[UIFont  systemFontOfSize:28 weight:UIFontWeightMedium]];
         label.textColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];
@@ -301,7 +301,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if(indexPath.row == [self.pageTitles count]){
+    if(indexPath.row == [self.places count]){
         return 200;
     }
     else{
@@ -311,7 +311,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.row < [self.pageTitles count]){
+    if(indexPath.row < [self.places count]){
         NSLog(@"didselect%ld",(long)indexPath.row);
         ViewController *viewC = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
         viewC.customStartPage = indexPath.row;
@@ -329,14 +329,14 @@
 // Override to support deleting cell of the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_pageTitles removeObjectAtIndex:indexPath.row];
+        [_places removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
         [mutableArray removeObjectAtIndex:indexPath.row];
         [self.tempratures removeObjectAtIndex:indexPath.row];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+        _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     }
 }
 
