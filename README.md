@@ -1,9 +1,10 @@
 # appleWeatherCloneIOS
 
 version 1 
-http://imgur.com/yElpgXz.gif
+http://imgur.com/yElpgXz.gif   
 ![image](http://imgur.com/9rsjpiq.gif)
-  
+![image](http://imgur.com/iTCdVcL.gif)
+     
 http://ezgif.com/optimize   
 https://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/   
 http://code.tutsplus.com/tutorials/using-scrollstyle-with-uipageviewcontroller--mobile-13551   
