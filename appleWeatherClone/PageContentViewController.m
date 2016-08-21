@@ -42,8 +42,8 @@
 }
 
 -(void)fetchOtherDataBasedOnPlace:(NSString *)place{
-    if([self.tempratures objectForKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]] == nil ||
-       [self.tempratureNames objectForKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]] == nil){
+    if([[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]] == nil ||
+       [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]] == nil){
         NSDictionary *parameters = @{@"q":place,
                                      @"APPID":open_weather_api_key,
                                      @"units":@"metric"};
@@ -69,6 +69,7 @@
                 self.weatherNameLabel.text = temp1;
                 self.tempratureLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt];
             });
+            [self saveDataToNSUserTempratureName:temp1 temprature:[NSString stringWithFormat:@"%ld",(long)tempInt] forPlace:place];
             
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -76,8 +77,16 @@
 
     }
     else{
-       
+        self.weatherNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]];
+        self.tempratureLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]];
     }
+}
+
+-(void)saveDataToNSUserTempratureName:(NSString *)tempratureName temprature:(NSString *)temprature forPlace:(NSString *)place{
+    [[NSUserDefaults standardUserDefaults] setObject:tempratureName forKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]];
+    [[NSUserDefaults standardUserDefaults] setObject:temprature forKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+
 }
 
 
