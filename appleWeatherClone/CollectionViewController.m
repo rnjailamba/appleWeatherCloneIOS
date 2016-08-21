@@ -32,7 +32,10 @@
     self.view.frame = [[UIScreen mainScreen]bounds];
     _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _pageImages = [NSMutableArray arrayWithArray: @[@"rainy.jpg", @"sunny.jpg", @"clear-compressed.jpg", @"cold-compressed.jpg"]];
-    self.tempratures = [NSMutableArray new];
+    self.tempratures = [[NSMutableArray alloc]initWithCapacity:_pageTitles.count];
+    for (int i = 0; i < _pageTitles.count; i++) {
+        self.tempratures[i] = @"";
+    }
     [self tableViewSetup];
     [self registrNib];
 }
@@ -235,7 +238,10 @@
         
         
         
-        if([self.tempratures count] <= indexPath.row){
+        if ( self.tempratures.count < (indexPath.row + 1) || ([[self.tempratures objectAtIndex:indexPath.row]length] == 0)){
+            for (int i = self.tempratures.count; i <= indexPath.row; i++) {
+                self.tempratures[i] = @"";
+            }
             NSDictionary *parameters = @{@"q":label.text,
                                          @"APPID":open_weather_api_key,
                                          @"units":@"metric"};
@@ -252,11 +258,12 @@
                 dispatch_async(dispatch_get_main_queue(), ^(){
                     UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
                     tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt] ;
-                    [self.tempratures addObject:tempLabel.text];
                     [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
                     tempLabel.textColor = [UIColor whiteColor];
                     [cell.contentView addSubview:tempLabel];
                 });
+//                [self.tempratures insertObject: atIndex:indexPath.row];
+                self.tempratures[indexPath.row]= [NSString stringWithFormat:@"%ld",(long)tempInt];
 //
             } failure:^(NSURLSessionTask *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
@@ -326,6 +333,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
         [mutableArray removeObjectAtIndex:indexPath.row];
+        [self.tempratures removeObjectAtIndex:indexPath.row];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         _pageTitles = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
