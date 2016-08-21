@@ -19,7 +19,7 @@
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
 @property (strong, nonatomic) NSMutableArray *places;
-@property (strong, nonatomic) NSArray *placeImages;
+@property (strong, nonatomic) NSMutableArray *placeImages;
 
 @property (nonatomic) NSInteger currentIndex;
 - (IBAction)stackClicked:(id)sender;
@@ -34,7 +34,7 @@
     self.view.frame  = [[ UIScreen mainScreen ] bounds];
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    _placeImages = @[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"];
+
     [self fetchDataFromNSUser];
     [self setUpPageViewController];
 }
@@ -66,14 +66,17 @@
 
 -(void)fetchDataFromNSUser{
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
+        _placeImages = [NSMutableArray arrayWithArray:@[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"]];
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
         NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:@[@"Houston",@"Frankfurt",@"Tokyo",@"Hamburg"]];
         [[NSUserDefaults standardUserDefaults] setObject:mutableArray forKey:@"places"];
+        [[NSUserDefaults standardUserDefaults] setObject:_placeImages forKey:@"placeImages"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     }
     _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
+    _placeImages = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"placeImages"]];
 }
 
 - (void)cacheUpdated:(NSNotification *)notification {
@@ -161,8 +164,20 @@
 - (IBAction)stackClicked:(id)sender {
     CollectionViewController *collectionVC = [[CollectionViewController alloc] initWithNibName:@"CollectionViewController" bundle:nil];
     [self presentViewController:collectionVC animated:YES completion:nil];
-    
-    
+    [self shuffle];
+    [[NSUserDefaults standardUserDefaults] setObject:_placeImages forKey:@"placeImages"];
+
+}
+
+- (void)shuffle
+{
+    NSUInteger count = [self.placeImages count];
+    if (count < 1) return;
+    for (NSUInteger i = 0; i < count - 1; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
+        [self.placeImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
 }
 
 
