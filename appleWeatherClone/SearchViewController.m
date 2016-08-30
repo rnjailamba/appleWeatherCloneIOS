@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (nonatomic) UICollectionView *collectionView;
 @property (nonatomic) NSMutableArray *results;
+@property (nonatomic) NSString *currentSearch;
 
 @end
 
@@ -164,8 +165,8 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    self.results = [NSMutableArray new];
     NSLog(@"%@",searchText);
+    self.currentSearch = searchText;
     [self.collectionView setHidden:YES];
     [self.activity startAnimating];
     GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
@@ -179,7 +180,7 @@
                                 [self.activity stopAnimating];
                                 if (error != nil) {
                                     NSLog(@"Autocomplete error %@", [error localizedDescription]);
-                                    self.results = [NSMutableArray new];
+                                    [self.collectionView reloadData];
                                     return;
                                 }
 //                                locality
@@ -188,8 +189,7 @@
 //                                country
 //                                administrative_area_level_1
 //                                administrative_area_level_2
-                                [self.collectionView reloadData];
-                                [self.collectionView setHidden:NO];
+
                                 for (GMSAutocompletePrediction* result in results) {
                                     for(NSString *val in result.types){
                                         if ([val isEqualToString:@"locality"]) {
@@ -199,6 +199,11 @@
                                         }
                                     }
                                 }
+                                if([searchText isEqualToString:self.currentSearch]){
+                                    [self.collectionView reloadData];
+                                    [self.collectionView setHidden:NO];
+                                }
+
                             }];
 }
 
