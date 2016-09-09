@@ -33,7 +33,11 @@ http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1255ba5f70c
 http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
 
 ##Steps to put on AppStore
-
 https://developer.apple.com/app-store/submissions/    
 https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html   
 http://stackoverflow.com/questions/25862917/why-am-i-getting-an-error-failed-to-locate-or-generate-matching-signing-assets?answertab=votes#tab-top
+
+##TODO
+- Change icons
+- put refresh button for weather
+- get flickr images
