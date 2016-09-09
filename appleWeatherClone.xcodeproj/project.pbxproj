@@ -34,6 +34,7 @@
 		63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63389BD61D65E55B00179D93 /* SearchViewController.m */; };
 		63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63389BD71D65E55B00179D93 /* SearchViewController.xib */; };
 		63B9FFCD1D827440005B4810 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B9FFCC1D827440005B4810 /* menu.png */; };
+		63B9FFCF1D827B46005B4810 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B9FFCE1D827B46005B4810 /* refresh.png */; };
 		63D759251D68665E00C9B977 /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759241D68665E00C9B977 /* dots.png */; };
 		63D759271D68676200C9B977 /* rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759261D68676200C9B977 /* rec.png */; };
 		63D7592B1D6867B100C9B977 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592A1D6867B100C9B977 /* list.png */; };
@@ -94,6 +95,7 @@
 		63389BD61D65E55B00179D93 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		63389BD71D65E55B00179D93 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		63B9FFCC1D827440005B4810 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		63B9FFCE1D827B46005B4810 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		63D759241D68665E00C9B977 /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dots.png; sourceTree = "<group>"; };
 		63D759261D68676200C9B977 /* rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec.png; sourceTree = "<group>"; };
 		63D7592A1D6867B100C9B977 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		6300D98B1D6424B6006A64D8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				63B9FFCE1D827B46005B4810 /* refresh.png */,
 				63B9FFCC1D827440005B4810 /* menu.png */,
 				63D759551D6890D100C9B977 /* list1.png */,
 				63D759261D68676200C9B977 /* rec.png */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63D759441D687A4000C9B977 /* road1.jpg in Resources */,
+				63B9FFCF1D827B46005B4810 /* refresh.png in Resources */,
 				6300D9A01D659D34006A64D8 /* stacked.png in Resources */,
 				6300D9991D657480006A64D8 /* PageViewController.xib in Resources */,
 				63D759461D687A4000C9B977 /* sun2.jpg in Resources */,

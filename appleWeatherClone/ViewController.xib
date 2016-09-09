@@ -26,7 +26,7 @@
                         <action selector="startAppleWeatherApp:" destination="-1" eventType="touchUpInside" id="7RD-aE-LiM"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrZ-7f-K66">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrZ-7f-K66" userLabel="Stack Button">
                     <rect key="frame" x="272" y="528" width="40" height="40"/>
                     <animations/>
                     <constraints>
@@ -36,12 +36,31 @@
                         <action selector="stackClicked:" destination="-1" eventType="touchUpInside" id="u8X-tW-POT"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-ow-FaS">
                     <rect key="frame" x="272" y="525" width="40" height="40"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="KIG-AP-Mas"/>
                         <constraint firstAttribute="height" constant="40" id="jp3-N9-Gk8"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evc-px-P1C" userLabel="Refresh Button">
+                    <rect key="frame" x="8" y="523" width="40" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UKq-D2-Ff7"/>
+                        <constraint firstAttribute="width" constant="40" id="eut-F3-ulv"/>
+                    </constraints>
+                    <connections>
+                        <action selector="refreshClicked:" destination="-1" eventType="touchUpInside" id="S60-Cm-Bdq"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="refresh.png" translatesAutoresizingMaskIntoConstraints="NO" id="D2B-Fm-tMB">
+                    <rect key="frame" x="8" y="525" width="35" height="35"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="fqZ-gT-xLd"/>
+                        <constraint firstAttribute="height" constant="35" id="zYv-ut-b8J"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -51,9 +70,13 @@
                 <constraint firstItem="KrZ-7f-K66" firstAttribute="leading" secondItem="NUr-ow-FaS" secondAttribute="leading" id="2qx-x8-3La"/>
                 <constraint firstItem="KrZ-7f-K66" firstAttribute="trailing" secondItem="NUr-ow-FaS" secondAttribute="trailing" id="Ecr-ck-uc4"/>
                 <constraint firstAttribute="bottom" secondItem="NUr-ow-FaS" secondAttribute="bottom" constant="3" id="QFP-1r-Idr"/>
+                <constraint firstItem="D2B-Fm-tMB" firstAttribute="leading" secondItem="b5Z-NY-Tfh" secondAttribute="leading" constant="8" id="WP4-9Q-SWQ"/>
+                <constraint firstAttribute="bottom" secondItem="D2B-Fm-tMB" secondAttribute="bottom" constant="8" id="WaN-Gt-9Q8"/>
                 <constraint firstAttribute="bottom" secondItem="KrZ-7f-K66" secondAttribute="bottom" id="fDS-aO-BKm"/>
+                <constraint firstItem="evc-px-P1C" firstAttribute="leading" secondItem="b5Z-NY-Tfh" secondAttribute="leading" constant="8" id="gNf-r8-eq9"/>
                 <constraint firstAttribute="trailing" secondItem="NUr-ow-FaS" secondAttribute="trailing" constant="8" id="m1F-ws-3W9"/>
                 <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerY" secondItem="NUr-ow-FaS" secondAttribute="centerY" id="nfP-la-fbW"/>
+                <constraint firstAttribute="bottom" secondItem="evc-px-P1C" secondAttribute="bottom" constant="5" id="pBT-oK-qzd"/>
                 <constraint firstItem="FE4-Fi-ztx" firstAttribute="centerX" secondItem="b5Z-NY-Tfh" secondAttribute="centerX" id="uBs-Qb-1Xs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -61,5 +84,6 @@
     </objects>
     <resources>
         <image name="menu.png" width="64" height="64"/>
+        <image name="refresh.png" width="64" height="64"/>
     </resources>
 </document>

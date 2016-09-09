@@ -23,6 +23,7 @@
 
 @property (nonatomic) NSInteger currentIndex;
 - (IBAction)stackClicked:(id)sender;
+- (IBAction)refreshClicked:(id)sender;
 
 @end
 
@@ -42,8 +43,8 @@
 -(void)setUpPageViewController{
     // Create page view controller
     self.pageViewController =  [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-                                                             navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                                                           options:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:0.0f] forKey:UIPageViewControllerOptionInterPageSpacingKey]];
+                                                    navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                    options:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:0.0f]     forKey:UIPageViewControllerOptionInterPageSpacingKey]];
     
     _pageViewController.dataSource = self;
     
@@ -171,6 +172,18 @@
 
 }
 
+- (IBAction)refreshClicked:(id)sender {
+    
+    for(NSString *place in self.places){
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"%@%@",place,@"tempName"]];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"%@%@",place,@"temp"]];
+    }
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self viewDidLoad];
+    
+    
+}
+
 - (void)shuffle
 {
     NSUInteger count = [self.placeImages count];
@@ -181,16 +194,5 @@
         [self.placeImages exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 @end
