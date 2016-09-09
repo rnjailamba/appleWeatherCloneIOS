@@ -41,4 +41,5 @@ http://stackoverflow.com/questions/25862917/why-am-i-getting-an-error-failed-to-
 - Change main icon and name
 - put refresh button for weather
 - get flickr images
-- 
+- Fix crash on moving around stuff
+- fix crash on 0 stuff.
