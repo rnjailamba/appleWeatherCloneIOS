@@ -31,3 +31,15 @@ http://stackoverflow.com/questions/16069357/uicollectionview-does-not-scroll
 http://openweathermap.org/appid   
 http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc  
 http://api.openweathermap.org/data/2.5/weather?q=Delhi&APPID=1255ba5f70cf5adf3bd2ba9aaa7dd1dc&units=metric
+
+##Steps to put on AppStore
+https://developer.apple.com/app-store/submissions/    
+https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html   
+http://stackoverflow.com/questions/25862917/why-am-i-getting-an-error-failed-to-locate-or-generate-matching-signing-assets?answertab=votes#tab-top
+
+##TODO
+- Change main icon and name
+- put refresh button for weather
+- get flickr images
+- Fix crash on moving around stuff
+- fix crash on 0 stuff.
