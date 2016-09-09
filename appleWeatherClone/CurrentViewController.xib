@@ -22,15 +22,15 @@
                     <rect key="frame" x="35" y="76" width="250" height="73"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LQ-uc-Nvz">
-                    <rect key="frame" x="112" y="468" width="97" height="30"/>
+                    <rect key="frame" x="112" y="466" width="97" height="30"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                     <state key="normal" title="Back">
-                        <color key="titleColor" red="0.87003236920000004" green="0.75703724819999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.16078431372549018" green="0.50196078431372548" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="backClicked:" destination="-1" eventType="touchUpInside" id="OVx-ER-IUL"/>
@@ -41,7 +41,7 @@
                     <animations/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5S-df-3ia">
-                    <rect key="frame" x="112" y="383" width="97" height="30"/>
+                    <rect key="frame" x="112" y="385" width="97" height="30"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <state key="normal" title="Refresh">

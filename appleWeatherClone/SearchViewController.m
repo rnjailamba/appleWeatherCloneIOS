@@ -34,6 +34,7 @@
     self.view.frame = [[UIScreen mainScreen]bounds];
     self.view.backgroundColor = [UIColor darkGrayColor];
     self.results = [NSMutableArray new];
+    self.displayResults = [NSMutableArray new];    
     [self searchBarSetup];
     [self aboveSearchBarSetup];
     

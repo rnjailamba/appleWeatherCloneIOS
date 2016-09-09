@@ -33,6 +33,7 @@
 		63389BCD1D65C40700179D93 /* cold.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63389BC91D65C40700179D93 /* cold.jpg */; };
 		63389BD81D65E55B00179D93 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63389BD61D65E55B00179D93 /* SearchViewController.m */; };
 		63389BD91D65E55B00179D93 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63389BD71D65E55B00179D93 /* SearchViewController.xib */; };
+		63B9FFCD1D827440005B4810 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B9FFCC1D827440005B4810 /* menu.png */; };
 		63D759251D68665E00C9B977 /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759241D68665E00C9B977 /* dots.png */; };
 		63D759271D68676200C9B977 /* rec.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D759261D68676200C9B977 /* rec.png */; };
 		63D7592B1D6867B100C9B977 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D7592A1D6867B100C9B977 /* list.png */; };
@@ -92,6 +93,7 @@
 		63389BD51D65E55B00179D93 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		63389BD61D65E55B00179D93 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		63389BD71D65E55B00179D93 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		63B9FFCC1D827440005B4810 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		63D759241D68665E00C9B977 /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dots.png; sourceTree = "<group>"; };
 		63D759261D68676200C9B977 /* rec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec.png; sourceTree = "<group>"; };
 		63D7592A1D6867B100C9B977 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		6300D98B1D6424B6006A64D8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				63B9FFCC1D827440005B4810 /* menu.png */,
 				63D759551D6890D100C9B977 /* list1.png */,
 				63D759261D68676200C9B977 /* rec.png */,
 				63D759531D68909300C9B977 /* rec.png */,
@@ -321,6 +324,7 @@
 				6300D97E1D62CEDE006A64D8 /* ViewController.xib in Resources */,
 				63D759511D68908A00C9B977 /* dots.png in Resources */,
 				6300D9B11D65A1AE006A64D8 /* plus.png in Resources */,
+				63B9FFCD1D827440005B4810 /* menu.png in Resources */,
 				63389BCC1D65C40700179D93 /* clear.jpg in Resources */,
 				63D759411D687A4000C9B977 /* clear3.jpg in Resources */,
 				63D759471D687A4000C9B977 /* sun3.jpg in Resources */,
