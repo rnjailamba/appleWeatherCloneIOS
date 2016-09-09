@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (nonatomic) UICollectionView *collectionView;
 @property (nonatomic) NSMutableArray *results;
+@property (nonatomic) NSMutableArray *displayResults;
 @property (nonatomic) NSString *currentSearch;
 
 @end
@@ -116,9 +117,9 @@
         [subview removeFromSuperview];
     }
     cell.frame = CGRectMake(0, 0 + indexPath.row*60, self.view.frame.size.width, 60);
-    cell.backgroundColor = [UIColor colorWithHue:drand48() saturation:0.7 brightness:0.9 alpha:1.0];
+    cell.backgroundColor = [self randomNiceColor];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width, 20)];
-    label.text =  [self.results objectAtIndex:indexPath.row];
+    label.text =  [self.displayResults objectAtIndex:indexPath.row];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentLeft;
     [cell.contentView addSubview:label];
@@ -177,6 +178,7 @@
                               filter:filter
                             callback:^(NSArray *results, NSError *error) {
                                 self.results = [NSMutableArray new];
+                                self.displayResults = [NSMutableArray new];
                                 [self.activity stopAnimating];
                                 if (error != nil) {
                                     NSLog(@"Autocomplete error %@", [error localizedDescription]);
@@ -193,8 +195,9 @@
                                 for (GMSAutocompletePrediction* result in results) {
                                     for(NSString *val in result.types){
                                         if ([val isEqualToString:@"locality"]) {
-                                            NSLog(@"Result '%@' with placeID %@", result.attributedPrimaryText.string, result.placeID);
+                                            NSLog(@"Result '%@' = %@", result.attributedPrimaryText.string, result.attributedFullText.string);
                                             [self.results addObject:result.attributedPrimaryText.string];
+                                            [self.displayResults addObject:result.attributedFullText.string];
                                             break;
                                         }
                                     }
@@ -219,6 +222,19 @@
     NSLog(@"User searched for %@", searchBar.text);
     [searchBar resignFirstResponder];
     [self.activity startAnimating];
+}
+
+- (UIColor *)randomNiceColor
+{
+    CGFloat hue = (arc4random() % 360) / 359.0f;
+    CGFloat saturation = (float)arc4random() / UINT32_MAX;
+    CGFloat brightness = (float)arc4random() / UINT32_MAX;
+    saturation = saturation < 0.5 ? 0.5 : saturation;
+    brightness = brightness < 0.9 ? 0.9 : brightness;
+    return [UIColor colorWithHue:hue
+                      saturation:saturation
+                      brightness:brightness
+                           alpha:0.8];
 }
 
 /*

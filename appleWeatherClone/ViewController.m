@@ -65,6 +65,8 @@
 }
 
 -(void)fetchDataFromNSUser{
+//    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+//    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
         _placeImages = [NSMutableArray arrayWithArray:@[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"]];
         NSString *valueToSave = @"true";
