@@ -180,8 +180,6 @@
     }
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self viewDidLoad];
-    
-    
 }
 
 - (void)shuffle

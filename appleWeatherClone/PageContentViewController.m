@@ -8,8 +8,11 @@
 
 #import "PageContentViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 #define open_weather_api_key @"1255ba5f70cf5adf3bd2ba9aaa7dd1dc"
+#define flickrApiKey @"1b27f0fd8544909da3891f6f8e541d4a"
 
 @interface PageContentViewController ()
 
@@ -27,6 +30,48 @@
     // Do any additional setup after loading the view from its nib.
     self.view.frame = [[UIScreen mainScreen]bounds];
     self.imageView.image = [UIImage imageNamed:self.imageFile];
+//    NSDictionary *parameters = @{@"method":@"flickr.photos.search",
+//                                 @"api_key":flickrApiKey,
+//                                 @"tags":[self.titleText lowercaseString],
+//                                 @"per_page":@"1",
+//                                 @"format":@"json",
+//                                 @"nojsoncallback":@"1",
+//                                 @"auth_token":@"72157670408905213-b705430ef34a6668",
+//                                 @"api_sig":@"9ac579f2ef738bfc38324de21bd12c6a"
+//                                 };
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    [manager GET:@"https://api.flickr.com/services/rest"
+//      parameters:parameters success:^(NSURLSessionTask *task, id responseObject) {
+//          
+//          id obj = [responseObject objectForKey:@"photos"];
+//          if(obj != nil){
+//              id photos = [obj objectForKey:@"photo"];
+//              dispatch_async(dispatch_get_main_queue(), ^{
+//                  NSMutableDictionary *dict = photos[0];
+//                  NSString *farm = [dict objectForKey:@"farm"];
+//                  NSString *server = [dict objectForKey:@"server"];
+//                  NSString *secret = [dict objectForKey:@"secret"];
+//                  NSString *theId = [dict objectForKey:@"id"];
+//                  NSString *url = [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@_n.jpg",farm,server,theId,secret];
+//                  NSLog(@"url is %@",url);
+//                  [ self.imageView sd_setImageWithURL:[NSURL URLWithString:url ] placeholderImage:[UIImage imageNamed:@"place.png"]];
+//                  self.imageView.clipsToBounds = YES;
+//                  
+//              });
+//     
+//          }
+//          else{
+//                self.imageView.image = [UIImage imageNamed:self.imageFile];
+//
+//          }
+//          
+//          
+//          
+//      } failure:^(NSURLSessionTask *operation, NSError *error) {
+//          NSLog(@"Error: %@", error);
+//      }];
+    
     self.label.text = self.titleText;
     self.imageView.clipsToBounds = YES;
     [self fetchOtherDataBasedOnPlace:self.titleText];

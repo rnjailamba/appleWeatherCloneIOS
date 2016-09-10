@@ -288,6 +288,7 @@
 				TargetAttributes = {
 					6300D9621D62CE15006A64D8 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 9HGY2TM6W3;
 					};
 				};
 			};
@@ -512,6 +513,7 @@
 			baseConfigurationReference = 82CAC272DB699C33F01A23B7 /* Pods-appleWeatherClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = appleWeatherClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rnjailamba.appleWeatherClone;
@@ -524,6 +526,7 @@
 			baseConfigurationReference = C61A1229EB01B52547950279 /* Pods-appleWeatherClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = appleWeatherClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rnjailamba.appleWeatherClone;

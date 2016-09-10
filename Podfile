@@ -4,4 +4,5 @@ target 'appleWeatherClone' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
   pod 'AFNetworking', '~> 2.5'
+  pod 'SDWebImage'
 end
