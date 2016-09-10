@@ -38,8 +38,8 @@ https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistrib
 http://stackoverflow.com/questions/25862917/why-am-i-getting-an-error-failed-to-locate-or-generate-matching-signing-assets?answertab=votes#tab-top
 
 ##TODO
-- Change main icon and name
-- put refresh button for weather
+- Change main icon and name - done
+- put refresh button for weather - done
 - get flickr images
 - Fix crash on moving around stuff
 - fix crash on 0 stuff.
