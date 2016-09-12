@@ -68,7 +68,8 @@
 -(void)fetchDataFromNSUser{
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil){
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] == nil ||
+        ([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"] != nil && [[NSUserDefaults standardUserDefaults] arrayForKey:@"places"].count == 0) ){
         _placeImages = [NSMutableArray arrayWithArray:@[ @"clear.jpg", @"cold.jpg",@"beach1.jpg",@"beach2.jpg",@"clear1.jpg",@"clear2.jpg",@"clear3.jpg",@"flower1.jpg",@"rain1.jpg",@"road1.jpg",@"sun1.jpg",@"sun2.jpg"]];
         NSString *valueToSave = @"true";
         [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"firstTime"];
@@ -78,6 +79,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     }
+    
     _places = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"places"]];
     _placeImages = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"placeImages"]];
 }
