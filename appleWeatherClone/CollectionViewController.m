@@ -94,7 +94,7 @@
             snapshot.center = center;
             
             // Is destination valid and is it different from source?
-            if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
+            if (indexPath && ![indexPath isEqual:sourceIndexPath] && indexPath.row < [self.places count]) {
                 
                 // ... update data source.
                 [self.places exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
