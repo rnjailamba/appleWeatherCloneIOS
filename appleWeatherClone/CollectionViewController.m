@@ -251,9 +251,9 @@
                     temperatureNameLabel.textColor = [UIColor whiteColor];
                     [cell.contentView addSubview:temperatureNameLabel];
                     
-                    UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+                    UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 56, 56)];
                     tempLabel.text = [NSString stringWithFormat:@"%ld",(long)tempInt];
-                    
+                    tempLabel.textAlignment = UITextAlignmentRight;
                     [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
                     tempLabel.textColor = [UIColor whiteColor];
                     [cell.contentView addSubview:tempLabel];
@@ -272,9 +272,9 @@
             temperatureNameLabel.textColor = [UIColor whiteColor];
             [cell.contentView addSubview:temperatureNameLabel];
 
-            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 80, 56)];
+            UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 90, 24, 56, 56)];
             tempLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@",label.text,@"temp"]];
-
+            tempLabel.textAlignment = UITextAlignmentRight;
             [tempLabel setFont:[UIFont  systemFontOfSize:44 weight:UIFontWeightMedium]];
             tempLabel.textColor = [UIColor whiteColor];
             [cell.contentView addSubview:tempLabel];
